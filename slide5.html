@@ -6,10 +6,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>핵심 추천 및 리스크 관리</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Jua&amp;display=swap"
       rel="stylesheet"
     />
@@ -18,345 +14,145 @@
       rel="stylesheet"
     />
     <link href="responsive.css" rel="stylesheet" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: "Noto Sans KR", sans-serif;
-        background-color: #f3f4f6;
-        min-height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-      .slide-viewport {
-        width: 1280px;
-        height: 720px;
-        flex-shrink: 0;
-        transform: scale(var(--scale, 1));
-        transform-origin: center center;
-      }
-      .slide-container {
-        width: 1280px;
-        height: 720px;
-        display: flex;
-        flex-direction: column;
-        background-color: #fdfbf7;
-        position: relative;
-        overflow: hidden;
-        padding: 40px;
-        box-sizing: border-box;
-      }
-      .card-shadow {
-        box-shadow:
-          0 4px 6px -1px rgba(0, 0, 0, 0.05),
-          0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      }
-      .best-pick-card {
-        background: linear-gradient(135deg, #ffffff 0%, #fffbf0 100%);
-        border: 2px solid #f59e0b;
-        position: relative;
-        overflow: hidden;
-      }
-      .ribbon {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 120px;
-        height: 120px;
-        overflow: hidden;
-      }
-      .ribbon::before {
-        content: "BEST PICK";
-        position: absolute;
-        top: 30px;
-        right: -30px;
-        transform: rotate(45deg);
-        background-color: #f59e0b;
-        color: white;
-        padding: 5px 40px;
-        font-weight: bold;
-        font-size: 0.9rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        font-family: "Jua", sans-serif;
-      }
-      .check-list-item {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 12px;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.6);
-        border-radius: 8px;
-        border-left: 4px solid #ef4444;
-      }
-      .recommendation-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 4px 12px;
-        border-radius: 9999px;
-        font-weight: 700;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-      }
-    </style>
+    <link href="slides.css" rel="stylesheet" />
   </head>
   <body>
     <div class="slide-viewport">
       <div class="slide-container">
-        <a
-          href="index.html"
-          class="absolute top-4 left-4 z-50 bg-white bg-opacity-80 text-gray-700 text-sm font-semibold px-3 py-1 rounded-full shadow flex items-center"
-        >
-          <i class="fas fa-home mr-1"></i>
+        <a href="index.html" class="btn-home btn-home--floating">
+          <i class="fas fa-home btn-home-icon"></i>
           홈으로
         </a>
-        <!-- Header Section -->
-        <div class="flex items-center justify-between mb-6">
+        <div class="slide-header">
           <div>
-            <div class="flex items-center mb-1">
-              <span
-                class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide mr-2"
-              >
-                Final Summary
-              </span>
-              <p
-                class="text-gray-500 text-sm font-medium tracking-wider uppercase"
-              >
-                여행지 선정 최종 가이드
-              </p>
+            <div class="slide-header-top">
+              <span class="badge-theme badge-theme--red">Final Summary</span>
+              <p class="slide-subtitle">여행지 선정 최종 가이드</p>
             </div>
-            <h1
-              class="text-4xl font-black text-gray-800"
-              style="font-family: &quot;Jua&quot;, sans-serif"
-            >
-              핵심 추천 &amp; 10월 리스크 관리
-            </h1>
+            <h1 class="slide-title">핵심 추천 &amp; 10월 리스크 관리</h1>
           </div>
-          <div
-            class="bg-white px-4 py-2 rounded-lg card-shadow border-l-4 border-gray-800"
-          >
-            <div class="flex items-center">
-              <i class="fas fa-clipboard-check text-gray-800 mr-2"></i>
-              <p class="text-sm font-bold text-gray-700">결정 기준</p>
+          <div class="checkpoint-box checkpoint-box--gray">
+            <div class="checkpoint-header">
+              <i class="fas fa-clipboard-check checkpoint-icon checkpoint-icon--gray"></i>
+              <p class="checkpoint-title">결정 기준</p>
             </div>
-            <p class="text-xs text-gray-500">
+            <p class="checkpoint-desc">
               부모님 체력 안배와 10월 날씨 변수 최우선 고려
             </p>
           </div>
         </div>
-        <!-- Main Content Grid -->
-        <div class="grid grid-cols-12 gap-6 h-full">
-          <!-- Left Column: Priority Recommendations (5 cols) -->
-          <div class="col-span-5 flex flex-col gap-4">
-            <!-- Best Pick -->
-            <div
-              class="best-pick-card rounded-2xl p-6 card-shadow flex-1 flex flex-col justify-between"
-            >
+        <div class="summary-grid">
+          <div class="summary-left">
+            <div class="best-pick-card">
               <div class="ribbon"></div>
-              <div>
-                <div class="flex items-center mb-3">
-                  <span class="text-4xl mr-3">🇹🇼</span>
-                  <div>
-                    <p class="text-sm text-yellow-600 font-bold mb-0.5">
-                      가장 안전하고 편안한 선택
-                    </p>
-                    <h2
-                      class="text-3xl font-black text-gray-800"
-                      style="font-family: &quot;Jua&quot;, sans-serif"
-                    >
-                      대만 (타이베이)
-                    </h2>
+              <div class="best-pick-inner">
+                <div>
+                  <div class="best-pick-header">
+                    <span class="best-pick-flag">🇹🇼</span>
+                    <div>
+                      <p class="best-pick-subtitle">가장 안전하고 편안한 선택</p>
+                      <h2 class="best-pick-title">대만 (타이베이)</h2>
+                    </div>
                   </div>
+                  <ul class="best-pick-list">
+                    <li>
+                      <i class="fas fa-plane"></i>
+                      <p><strong>최단 이동시간 (2.5h)</strong> 으로 부모님 피로도 최소화</p>
+                    </li>
+                    <li>
+                      <i class="fas fa-city"></i>
+                      <p>도심 편의시설, 택시 투어 등 <strong>체력 안배 용이</strong></p>
+                    </li>
+                    <li>
+                      <i class="fas fa-wallet"></i>
+                      <p>5인 가족 예산 효율성 <strong>가장 우수</strong></p>
+                    </li>
+                  </ul>
                 </div>
-                <ul class="space-y-3 mb-4">
-                  <li class="flex items-start">
-                    <i class="fas fa-plane text-blue-500 mt-1 mr-2.5"></i>
-                    <p class="text-sm text-gray-700">
-                      <strong>최단 이동시간 (2.5h)</strong>
-                      으로 부모님 피로도 최소화
-                    </p>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-city text-indigo-500 mt-1 mr-2.5"></i>
-                    <p class="text-sm text-gray-700">
-                      도심 편의시설, 택시 투어 등
-                      <strong>체력 안배 용이</strong>
-                    </p>
-                  </li>
-                  <li class="flex items-start">
-                    <i class="fas fa-wallet text-green-500 mt-1 mr-2.5"></i>
-                    <p class="text-sm text-gray-700">
-                      5인 가족 예산 효율성
-                      <strong>가장 우수</strong>
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-100">
-                <p class="text-xs text-yellow-800 font-bold mb-1">
-                  <i class="fas fa-lightbulb mr-1"></i>
-                  추천 일정 포인트
-                </p>
-                <p class="text-xs text-gray-600">
-                  예스진지 택시투어 필수 예약 + 타이베이101 전망대 + 딘타이펑
-                  식도락
-                </p>
+                <div class="best-pick-tip-box">
+                  <p class="tip-label"><i class="fas fa-lightbulb"></i> 추천 일정 포인트</p>
+                  <p class="tip-body">예스진지 택시투어 필수 예약 + 타이베이101 전망대 + 딘타이펑 식도락</p>
+                </div>
               </div>
             </div>
-            <!-- Alternative Pick -->
-            <div
-              class="bg-white rounded-2xl p-5 card-shadow border-l-4 border-blue-400"
-            >
-              <div class="flex justify-between items-start mb-2">
+            <div class="alt-pick-card">
+              <div class="alt-pick-header">
                 <div>
-                  <span
-                    class="recommendation-badge bg-blue-100 text-blue-800 mb-1"
-                  >
-                    대안 추천 (휴양형)
-                  </span>
-                  <h3 class="text-xl font-bold text-gray-800 flex items-center">
-                    <span class="text-2xl mr-2">🇲🇾</span>
-                    코타키나발루
-                  </h3>
+                  <span class="recommendation-badge recommendation-badge--blue">대안 추천 (휴양형)</span>
+                  <h3 class="alt-pick-title"><span class="alt-pick-flag">🇲🇾</span> 코타키나발루</h3>
                 </div>
-                <i class="fas fa-umbrella-beach text-blue-200 text-3xl"></i>
+                <i class="fas fa-umbrella-beach alt-pick-deco-icon"></i>
               </div>
-              <p class="text-xs text-gray-600 mb-2">
-                "관광보다
-                <strong>리조트 휴식</strong>
-                을 원하신다면 최적의 대안입니다."
-              </p>
-              <p class="text-xs text-blue-600 font-medium">
-                <i class="fas fa-check mr-1"></i>
-                직항편 + 리조트 내 모든 해결 가능
-              </p>
+              <p class="alt-pick-desc">"관광보다 <strong>리조트 휴식</strong>을 원하신다면 최적의 대안입니다."</p>
+              <p class="alt-pick-point"><i class="fas fa-check"></i> 직항편 + 리조트 내 모든 해결 가능</p>
             </div>
           </div>
-          <!-- Right Column: Theme & Risks (7 cols) -->
-          <div class="col-span-7 flex flex-col gap-4">
-            <!-- Theme Recommendations Row -->
-            <div class="grid grid-cols-3 gap-4">
-              <!-- Sapa -->
-              <div class="bg-white p-4 rounded-xl card-shadow">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-bold text-green-600">
-                    풍경 감성
-                  </span>
-                  <span class="text-lg">🇻🇳</span>
+          <div class="summary-right">
+            <div class="theme-cards-grid">
+              <div class="theme-card">
+                <div class="theme-card-top">
+                  <span class="theme-card-tag theme-card-tag--green">풍경 감성</span>
+                  <span class="theme-card-emoji">🇻🇳</span>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-1">사파 (Sapa)</h4>
-                <p class="text-xs text-gray-500 mb-2">황금빛 논 절정기🌾</p>
-                <div class="border-t border-gray-100 pt-2">
-                  <p class="text-xs text-red-500 font-bold">⚠️ 주의</p>
-                  <p class="text-[10px] text-gray-500">
-                    이동이 매우 힘듦. 부모님 체력 좋으실 때만 추천.
-                  </p>
-                </div>
+                <h4 class="theme-card-title">사파 (Sapa)</h4>
+                <p class="theme-card-desc">황금빛 논 절정기🌾</p>
+                <div class="theme-card-note theme-card-note--warn">⚠️ 주의</div>
+                <p class="theme-card-note-body">이동이 매우 힘듦. 부모님 체력 좋으실 때만 추천.</p>
               </div>
-              <!-- Ubud -->
-              <div class="bg-white p-4 rounded-xl card-shadow">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-bold text-purple-600">
-                    힐링/요가
-                  </span>
-                  <span class="text-lg">🇮🇩</span>
+              <div class="theme-card">
+                <div class="theme-card-top">
+                  <span class="theme-card-tag theme-card-tag--purple">힐링/요가</span>
+                  <span class="theme-card-emoji">🇮🇩</span>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-1">우붓 (Ubud)</h4>
-                <p class="text-xs text-gray-500 mb-2">숲속 웰니스 체험🌿</p>
-                <div class="border-t border-gray-100 pt-2">
-                  <p class="text-xs text-blue-500 font-bold">💡 팁</p>
-                  <p class="text-[10px] text-gray-500">
-                    일정의 절반은 리조트 내 휴식으로 채우기.
-                  </p>
-                </div>
+                <h4 class="theme-card-title">우붓 (Ubud)</h4>
+                <p class="theme-card-desc">숲속 웰니스 체험🌿</p>
+                <div class="theme-card-note theme-card-note--tip">💡 팁</div>
+                <p class="theme-card-note-body">일정의 절반은 리조트 내 휴식으로 채우기.</p>
               </div>
-              <!-- Danang -->
-              <div class="bg-white p-4 rounded-xl card-shadow">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-bold text-indigo-600">밸런스</span>
-                  <span class="text-lg">🇻🇳</span>
+              <div class="theme-card">
+                <div class="theme-card-top">
+                  <span class="theme-card-tag theme-card-tag--indigo">밸런스</span>
+                  <span class="theme-card-emoji">🇻🇳</span>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-1">다낭 (Danang)</h4>
-                <p class="text-xs text-gray-500 mb-2">관광+휴양 적절🏝️</p>
-                <div class="border-t border-gray-100 pt-2">
-                  <p class="text-xs text-red-500 font-bold">⚠️ 리스크</p>
-                  <p class="text-[10px] text-gray-500">
-                    10월 태풍/우기 시즌. 일정 유연성 필수.
-                  </p>
-                </div>
+                <h4 class="theme-card-title">다낭 (Danang)</h4>
+                <p class="theme-card-desc">관광+휴양 적절🏝️</p>
+                <div class="theme-card-note theme-card-note--warn">⚠️ 리스크</div>
+                <p class="theme-card-note-body">10월 태풍/우기 시즌. 일정 유연성 필수.</p>
               </div>
             </div>
-            <!-- Risk Management Checklist -->
-            <div
-              class="bg-red-50 rounded-2xl p-6 flex-1 border border-red-100 relative"
-            >
-              <div
-                class="absolute top-4 right-4 text-red-200 text-6xl opacity-20"
-              >
-                <i class="fas fa-shield-alt"></i>
-              </div>
-              <h3 class="font-bold text-gray-800 mb-4 flex items-center">
-                <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
+            <div class="risk-section">
+              <div class="risk-section-icon-bg"><i class="fas fa-shield-alt"></i></div>
+              <h3 class="risk-section-title">
+                <i class="fas fa-exclamation-circle"></i>
                 10월 여행 리스크 관리 체크리스트
               </h3>
-              <div class="grid grid-cols-2 gap-x-6">
+              <div class="risk-checklist">
                 <div class="check-list-item">
-                  <i
-                    class="fas fa-cloud-showers-heavy text-red-400 mt-1 mr-3 text-sm"
-                  ></i>
+                  <i class="fas fa-cloud-showers-heavy check-icon check-icon--red"></i>
                   <div>
-                    <p class="text-xs font-bold text-gray-800">
-                      우기/태풍 대비 'Plan B' 확보
-                    </p>
-                    <p class="text-xs text-gray-600 mt-1">
-                      야외 일정 취소 시 방문할 박물관, 쇼핑몰, 스파샵 리스트업
-                      필수.
-                    </p>
+                    <p class="check-list-title">우기/태풍 대비 'Plan B' 확보</p>
+                    <p class="check-list-desc">야외 일정 취소 시 방문할 박물관, 쇼핑몰, 스파샵 리스트업 필수.</p>
                   </div>
                 </div>
-                <div class="check-list-item" style="border-left-color: #f59e0b">
-                  <i
-                    class="fas fa-hourglass-half text-yellow-500 mt-1 mr-3 text-sm"
-                  ></i>
+                <div class="check-list-item check-list-item--yellow">
+                  <i class="fas fa-hourglass-half check-icon check-icon--yellow"></i>
                   <div>
-                    <p class="text-xs font-bold text-gray-800">
-                      90분 이동 / 30분 휴식 원칙
-                    </p>
-                    <p class="text-xs text-gray-600 mt-1">
-                      부모님 체력을 위해 빡빡한 일정 지양. 숙소 복귀 후 저녁
-                      일정 최소화.
-                    </p>
+                    <p class="check-list-title">90분 이동 / 30분 휴식 원칙</p>
+                    <p class="check-list-desc">부모님 체력을 위해 빡빡한 일정 지양. 숙소 복귀 후 저녁 일정 최소화.</p>
                   </div>
                 </div>
-                <div class="check-list-item" style="border-left-color: #10b981">
-                  <i
-                    class="fas fa-utensils text-green-500 mt-1 mr-3 text-sm"
-                  ></i>
+                <div class="check-list-item check-list-item--green">
+                  <i class="fas fa-utensils check-icon check-icon--green"></i>
                   <div>
-                    <p class="text-xs font-bold text-gray-800">
-                      한식당/비상식량 준비
-                    </p>
-                    <p class="text-xs text-gray-600 mt-1">
-                      향신료에 민감하실 수 있으므로 컵라면, 고추장 또는 한식당
-                      1~2곳 파악.
-                    </p>
+                    <p class="check-list-title">한식당/비상식량 준비</p>
+                    <p class="check-list-desc">향신료에 민감하실 수 있으므로 컵라면, 고추장 또는 한식당 1~2곳 파악.</p>
                   </div>
                 </div>
-                <div class="check-list-item" style="border-left-color: #3b82f6">
-                  <i
-                    class="fas fa-file-medical text-blue-500 mt-1 mr-3 text-sm"
-                  ></i>
+                <div class="check-list-item check-list-item--blue">
+                  <i class="fas fa-file-medical check-icon check-icon--blue"></i>
                   <div>
-                    <p class="text-xs font-bold text-gray-800">
-                      여행자 보험 &amp; 상비약
-                    </p>
-                    <p class="text-xs text-gray-600 mt-1">
-                      해외 병원비 대비 및 평소 드시는 약 넉넉히 챙기기 (처방전
-                      사진 보관).
-                    </p>
+                    <p class="check-list-title">여행자 보험 &amp; 상비약</p>
+                    <p class="check-list-desc">해외 병원비 대비 및 평소 드시는 약 넉넉히 챙기기 (처방전 사진 보관).</p>
                   </div>
                 </div>
               </div>
@@ -365,15 +161,5 @@
         </div>
       </div>
     </div>
-    <script>
-      (function () {
-        function setScale() {
-          var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
-          document.documentElement.style.setProperty("--scale", s);
-        }
-        setScale();
-        window.addEventListener("resize", setScale);
-      })();
-    </script>
   </body>
 </html>

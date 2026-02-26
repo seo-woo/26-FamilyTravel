@@ -24,7 +24,8 @@
   }
 
   /* 그리드: 카드/콘텐츠 모바일에서 1열 */
-  .slide-container .cards-grid {
+  .slide-container .cards-grid,
+  .slide-container .cards-grid--2 {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
   }
@@ -52,37 +53,46 @@
   }
 
   /* 인덱스(메인) 페이지: 좌우 배치 → 세로 스택 */
-  .slide-container:has(.w-5\/12) {
+  .index-container {
     flex-direction: column !important;
   }
 
-  .slide-container .w-5\/12 {
+  .index-right {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .slide-container .px-16 {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
 
-  .slide-container .text-6xl {
+  .index-left {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .index-title {
     font-size: 1.75rem !important;
   }
 
-  .slide-container .text-xl {
-    font-size: 1rem !important;
-  }
-
-  .slide-container .max-w-lg,
-  .slide-container .max-w-2xl {
+  .index-audience-box,
+  .index-considerations {
     max-width: 100% !important;
   }
 
+  .cards-grid--2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .theme-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   /* 카드 내부 그리드(2열 → 1열) */
-  .slide-container .grid.grid-cols-2.gap-4 {
+  .cards-grid--2 .info-grid-inner,
+  .slide-container .risk-checklist {
     grid-template-columns: 1fr !important;
     gap: 0.5rem !important;
   }
@@ -94,21 +104,21 @@
   }
 
   /* 카드 패딩 */
-  .slide-container .p-6 {
+  .card-body--lg {
     padding: 1rem !important;
   }
 
   /* 예산 페이지: 좌우 열 → 세로 스택, 테이블 가로 스크롤 */
-  .slide-container .flex.gap-8 {
+  .budget-layout {
     flex-direction: column !important;
     gap: 1rem !important;
   }
-  .slide-container .w-3\/5,
-  .slide-container .w-2\/5 {
+  .budget-table-wrap,
+  .budget-chart-col {
     width: 100% !important;
     max-width: 100% !important;
   }
-  .slide-container .w-3\/5 {
+  .budget-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -158,7 +168,24 @@
     height: 120px !important;
   }
 
-  .slide-container .grid {
+  .slide-container .cards-grid,
+  .slide-container .cards-grid--2,
+  .slide-container .theme-cards-grid {
     gap: 0.75rem !important;
+  }
+
+  /* 인덱스: 좌우 → 세로 */
+  .index-container {
+    flex-direction: column !important;
+  }
+  .index-right {
+    width: 100% !important;
+    padding: 0 1rem !important;
+  }
+  .index-title {
+    font-size: 1.5rem !important;
+  }
+  .summary-grid {
+    grid-template-columns: 1fr !important;
   }
 }

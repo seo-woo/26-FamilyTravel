@@ -6,10 +6,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>10월 가족 여행지 비교</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Jua&amp;display=swap"
       rel="stylesheet"
     />
@@ -18,263 +14,127 @@
       rel="stylesheet"
     />
     <link href="responsive.css" rel="stylesheet" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: "Noto Sans KR", sans-serif;
-        background-color: #f3f4f6;
-        min-height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-      .slide-viewport {
-        width: 1280px;
-        height: 720px;
-        flex-shrink: 0;
-        transform: scale(var(--scale, 1));
-        transform-origin: center center;
-      }
-      .slide-container {
-        width: 1280px;
-        height: 720px;
-        display: flex;
-        background-color: #fdfbf7; /* Warm off-white */
-        position: relative;
-        overflow: hidden;
-      }
-      .decorative-circle {
-        position: absolute;
-        border-radius: 50%;
-        z-index: 0;
-      }
-      .card-shadow {
-        box-shadow:
-          0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 8px 10px -6px rgba(0, 0, 0, 0.1);
-      }
-      .theme-pill {
-        display: flex;
-        align-items: center;
-        padding: 0.5rem 1rem;
-        border-radius: 9999px;
-        background-color: white;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        font-weight: 700;
-      }
-    </style>
+    <link href="slides.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="slide-viewport">
-      <div class="slide-container">
-        <!-- Decorative Background Elements (No Gradients) -->
-        <div
-          class="decorative-circle"
-          style="
-            width: 600px;
-            height: 600px;
-            background-color: #ffe8d6;
-            top: -100px;
-            right: -100px;
-            opacity: 0.6;
-          "
-        ></div>
-        <div
-          class="decorative-circle"
-          style="
-            width: 300px;
-            height: 300px;
-            background-color: #ddbea9;
-            bottom: -50px;
-            left: -50px;
-            opacity: 0.4;
-          "
-        ></div>
-        <!-- Left Content Section -->
-        <div class="flex-1 flex flex-col justify-center px-16 z-10">
-          <!-- Header Tag -->
-          <div class="flex items-center mb-6">
-            <span
-              class="bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wide mr-3"
-            >
-              OCTOBER TRAVEL
-            </span>
-            <span
-              class="text-gray-600 font-medium text-sm tracking-widest uppercase"
-            >
-              2026 Family Trip Plan
-            </span>
+    <div class="slide-viewport index-viewport">
+      <div class="slide-container index-container">
+        <div class="decorative-circle decorative-circle--top"></div>
+        <div class="decorative-circle decorative-circle--bottom"></div>
+        <div class="index-left">
+          <div class="index-header">
+            <span class="index-badge">OCTOBER TRAVEL</span>
+            <span class="index-header-sub">2026 Family Trip Plan</span>
           </div>
-          <!-- Main Title -->
-          <div class="mb-8">
-            <h1
-              class="text-6xl font-black text-gray-800 leading-tight mb-2"
-              style="font-family: &quot;Jua&quot;, sans-serif"
-            >
+          <div class="index-title-wrap">
+            <h1 class="index-title">
               10월 가족 여행지
               <br />
-              <span class="text-yellow-600">테마별 비교 분석</span>
+              <span class="index-title-accent">테마별 비교 분석</span>
             </h1>
-            <p
-              class="text-xl text-gray-600 font-medium mt-4 border-l-4 border-yellow-500 pl-4"
-            >
+            <p class="index-subtitle">
               산(Mountain) · 바다(Ocean) · 도심(City)
             </p>
           </div>
-          <!-- Target Audience Box -->
-          <div
-            class="bg-white p-6 rounded-2xl card-shadow max-w-lg mb-8 border-l-8 border-green-600"
-          >
-            <div class="flex items-center mb-2">
-              <i class="fas fa-users text-green-600 text-xl mr-3"></i>
-              <h3 class="font-bold text-gray-800 text-lg">여행 대상</h3>
+          <div class="index-audience-box">
+            <div class="audience-header">
+              <i class="fas fa-users"></i>
+              <h3 class="audience-title">여행 대상</h3>
             </div>
-            <p class="text-gray-600 pl-8">
-              5인 가족 (부모님 동반)
-            </p>
+            <p class="audience-desc">5인 가족 (부모님 동반)</p>
           </div>
-          <!-- Key Considerations -->
-          <div class="grid grid-cols-2 gap-4 max-w-2xl">
-            <div class="flex items-start">
-              <div class="bg-blue-100 p-2 rounded-lg mr-3 text-blue-600">
+          <div class="index-considerations">
+            <div class="index-consideration-item">
+              <div class="icon-wrap icon-wrap--blue">
                 <i class="fas fa-plane"></i>
               </div>
               <div>
-                <p class="font-bold text-gray-800 text-sm">이동 편의성</p>
-                <p class="text-xs text-gray-500">직항 및 짧은 동선 우선</p>
+                <p class="item-title">이동 편의성</p>
+                <p class="item-desc">직항 및 짧은 동선 우선</p>
               </div>
             </div>
-            <div class="flex items-start">
-              <div class="bg-red-100 p-2 rounded-lg mr-3 text-red-600">
+            <div class="index-consideration-item">
+              <div class="icon-wrap icon-wrap--red">
                 <i class="fas fa-heartbeat"></i>
               </div>
               <div>
-                <p class="font-bold text-gray-800 text-sm">부모님 체력</p>
-                <p class="text-xs text-gray-500">휴식 위주, 완만한 일정</p>
+                <p class="item-title">부모님 체력</p>
+                <p class="item-desc">휴식 위주, 완만한 일정</p>
               </div>
             </div>
-            <div class="flex items-start">
-              <div class="bg-yellow-100 p-2 rounded-lg mr-3 text-yellow-600">
+            <div class="index-consideration-item">
+              <div class="icon-wrap icon-wrap--yellow">
                 <i class="fas fa-cloud-sun-rain"></i>
               </div>
               <div>
-                <p class="font-bold text-gray-800 text-sm">기후 체크</p>
-                <p class="text-xs text-gray-500">10월 우기/태풍 리스크 관리</p>
+                <p class="item-title">기후 체크</p>
+                <p class="item-desc">10월 우기/태풍 리스크 관리</p>
               </div>
             </div>
-            <div class="flex items-start">
-              <div class="bg-purple-100 p-2 rounded-lg mr-3 text-purple-600">
+            <div class="index-consideration-item">
+              <div class="icon-wrap icon-wrap--purple">
                 <i class="fas fa-wallet"></i>
               </div>
               <div>
-                <p class="font-bold text-gray-800 text-sm">예산 최적화</p>
-                <p class="text-xs text-gray-500">5인 기준 가성비 비교</p>
+                <p class="item-title">예산 최적화</p>
+                <p class="item-desc">5인 기준 가성비 비교</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Right Visual Section -->
-        <div
-          class="w-5/12 relative z-10 flex flex-col justify-center pr-12 pl-4"
-        >
-          <div class="grid grid-cols-1 gap-6">
-            <!-- Mountain Card -->
-            <a
-              href="slide1.html"
-              class="block bg-white p-4 rounded-xl card-shadow flex items-center transform translate-x-4 transition-transform hover:translate-x-2 cursor-pointer no-underline text-inherit"
-            >
-              <div
-                class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 mr-4 bg-green-100 flex items-center justify-center"
-              >
+        <div class="index-right">
+          <div class="theme-link-grid">
+            <a href="slide1.html" class="theme-link-card">
+              <div class="card-thumb card-thumb--green">
                 <img
                   alt="Mountain"
-                  class="w-full h-full object-cover"
                   src="https://page.gensparksite.com/slides_images/15b12fb5c803c310660ca5f7a5a53ca4.webp"
                 />
               </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center mb-1">
-                  <span
-                    class="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded"
-                  >
-                    MOUNTAIN
-                  </span>
-                  <i class="fas fa-mountain text-gray-300"></i>
+              <div class="card-body">
+                <div class="card-top">
+                  <span class="card-tag card-tag--green">MOUNTAIN</span>
+                  <i class="fas fa-mountain card-icon"></i>
                 </div>
-                <h3 class="font-bold text-gray-800">산 테마</h3>
-                <p class="text-xs text-gray-500">사파 · 우붓 · 치앙마이</p>
+                <h3 class="card-title">산 테마</h3>
+                <p class="card-desc">사파 · 우붓 · 치앙마이</p>
               </div>
             </a>
-            <!-- Ocean Card -->
-            <a
-              href="slide2.html"
-              class="block bg-white p-4 rounded-xl card-shadow flex items-center transform -translate-x-2 transition-transform hover:translate-x-0 border-l-4 border-blue-400 cursor-pointer no-underline text-inherit"
-            >
-              <div
-                class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 mr-4 bg-blue-100 flex items-center justify-center"
-              >
+            <a href="slide2.html" class="theme-link-card theme-link-card--highlight">
+              <div class="card-thumb card-thumb--blue">
                 <img
                   alt="Ocean"
-                  class="w-full h-full object-cover"
                   src="https://page.gensparksite.com/slides_images/fe3f15abc3c26909092ebd4309d62857.webp"
                 />
               </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center mb-1">
-                  <span
-                    class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded"
-                  >
-                    OCEAN
-                  </span>
-                  <i class="fas fa-water text-gray-300"></i>
+              <div class="card-body">
+                <div class="card-top">
+                  <span class="card-tag card-tag--blue">OCEAN</span>
+                  <i class="fas fa-water card-icon"></i>
                 </div>
-                <h3 class="font-bold text-gray-800">바다 테마</h3>
-                <p class="text-xs text-gray-500">마나도 · 코타키나발루</p>
+                <h3 class="card-title">바다 테마</h3>
+                <p class="card-desc">마나도 · 코타키나발루</p>
               </div>
             </a>
-            <!-- City Card -->
-            <a
-              href="slide3.html"
-              class="block bg-white p-4 rounded-xl card-shadow flex items-center transform translate-x-4 transition-transform hover:translate-x-2 cursor-pointer no-underline text-inherit"
-            >
-              <div
-                class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 mr-4 bg-purple-100 flex items-center justify-center"
-              >
+            <a href="slide3.html" class="theme-link-card">
+              <div class="card-thumb card-thumb--purple">
                 <img
                   alt="City"
-                  class="w-full h-full object-cover"
                   src="https://page.gensparksite.com/slides_images/91add87cb46fe710f6cfe03036b67fd3.webp"
                 />
               </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center mb-1">
-                  <span
-                    class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded"
-                  >
-                    CITY
-                  </span>
-                  <i class="fas fa-city text-gray-300"></i>
+              <div class="card-body">
+                <div class="card-top">
+                  <span class="card-tag card-tag--purple">CITY</span>
+                  <i class="fas fa-city card-icon"></i>
                 </div>
-                <h3 class="font-bold text-gray-800">도심 테마</h3>
-                <p class="text-xs text-gray-500">다낭 · 대만 · 홍콩</p>
+                <h3 class="card-title">도심 테마</h3>
+                <p class="card-desc">다낭 · 대만 · 홍콩</p>
               </div>
             </a>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      (function () {
-        function setScale() {
-          var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
-          document.documentElement.style.setProperty("--scale", s);
-        }
-        setScale();
-        window.addEventListener("resize", setScale);
-      })();
-    </script>
   </body>
 </html>
