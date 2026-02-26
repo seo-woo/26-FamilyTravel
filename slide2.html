@@ -1,0 +1,357 @@
+<!doctype html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>바다 테마 여행지 비교</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Jua&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="gallery.css" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: #f3f4f6;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .slide-viewport {
+        width: 1280px;
+        height: 720px;
+        flex-shrink: 0;
+        transform: scale(var(--scale, 1));
+        transform-origin: center center;
+      }
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        display: flex;
+        flex-direction: column;
+        background-color: #fdfbf7;
+        position: relative;
+        overflow: hidden;
+        padding: 40px;
+        box-sizing: border-box;
+      }
+      .card-shadow {
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        transition: transform 0.2s ease-in-out;
+      }
+      .card-shadow:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .image-container {
+        height: 200px;
+        overflow: hidden;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        position: relative;
+      }
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .info-row {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+      }
+      .info-icon {
+        width: 24px;
+        text-align: center;
+        margin-right: 12px;
+        margin-top: 2px;
+        flex-shrink: 0;
+        font-size: 1.1rem;
+      }
+      .pros-cons-box {
+        background-color: #f9fafb;
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+        border: 1px solid #e5e7eb;
+      }
+      .tip-box {
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        display: flex;
+        align-items: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-viewport">
+      <div class="slide-container">
+        <!-- Header Section -->
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <div class="flex items-center mb-1">
+              <span
+                class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide mr-2"
+              >
+                Ocean Theme
+              </span>
+              <p
+                class="text-gray-500 text-sm font-medium tracking-wider uppercase"
+              >
+                10월 추천 여행지
+              </p>
+            </div>
+            <h1
+              class="text-4xl font-black text-gray-800"
+              style="font-family: &quot;Jua&quot;, sans-serif"
+            >
+              바다(Ocean) 테마 비교
+            </h1>
+          </div>
+          <div
+            class="bg-white px-4 py-2 rounded-lg card-shadow border-l-4 border-blue-400"
+          >
+            <div class="flex items-center">
+              <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+              <p class="text-sm font-bold text-gray-700">핵심 비교</p>
+            </div>
+            <p class="text-xs text-gray-500">
+              이동 편의성과 휴양 vs 액티비티 목적에 따른 선택
+            </p>
+          </div>
+        </div>
+        <!-- Cards Container -->
+        <div class="grid grid-cols-2 gap-8 flex-1 h-full px-4 pb-2">
+          <!-- Card 1: Manado -->
+          <div
+            class="bg-white rounded-2xl card-shadow flex flex-col h-full border border-gray-100 destination-card"
+            data-destination="manado"
+          >
+            <div class="image-container">
+              <img
+                alt="Manado"
+                class="w-full h-full object-cover"
+                src="https://img.segye.com/content/image/2025/11/03/20251103518469.jpg"
+              />
+              <div class="image-overlay">
+                <h2 class="text-white font-bold text-2xl">마나도 (Manado)</h2>
+                <p class="text-white text-sm opacity-90">
+                  🇮🇩 인도네시아 (다이빙 성지)
+                </p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="info-row">
+                  <div class="info-icon text-red-500">
+                    <i class="fas fa-plane-slash"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-gray-700">
+                      이동 (난이도: 하 ~ 최상)
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1">
+                      직항 없음, 1~2회 경유 / 여행사 끼면 직항도 가능
+                    </p>
+                    <p class="text-xs text-red-500 font-bold mt-0.5">
+                      ⚠️ 현재는 직항이 3월까지 운행이라 여행사 상품도 3월까지만 있음
+                    </p>
+                  </div>
+                </div>
+                <div class="info-row">
+                  <div class="info-icon text-orange-500">
+                    <i class="fas fa-temperature-high"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-gray-700">10월 기후</p>
+                    <p class="text-xs text-gray-500 mt-1">
+                      무덥고 습한 열대 기후
+                    </p>
+                    <p class="text-xs text-blue-500 font-medium mt-0.5">
+                      수중 시야는 좋음
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="pros-cons-box flex-1">
+                <div class="mb-3">
+                  <p
+                    class="text-sm font-bold text-gray-700 mb-1 flex items-center"
+                  >
+                    <i class="fas fa-thumbs-up text-blue-500 mr-2"></i>
+                    장점
+                  </p>
+                  <p class="text-xs text-gray-600 pl-6">
+                    세계적인 다이빙/스노클링 포인트, 때 묻지 않은 자연, 조용한
+                    휴식 가능.
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="text-sm font-bold text-gray-700 mb-1 flex items-center"
+                  >
+                    <i class="fas fa-thumbs-down text-red-500 mr-2"></i>
+                    단점
+                  </p>
+                  <p class="text-xs text-gray-600 pl-6">
+                    복잡하고 긴 이동 경로. 한국어 가이드나 편의시설 부족.
+                  </p>
+                </div>
+              </div>
+              <div class="tip-box bg-red-50 border border-red-200 mt-auto">
+                <div class="text-red-500 mr-3 text-lg mt-1">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-red-800 mb-1">
+                    부모님 체력 고려 사항
+                  </p>
+                  <p class="text-xs text-red-700 leading-relaxed">
+                    이동 자체가 큰 스트레스가 될 수 있음. 다이빙 목적이 아니라면
+                    <strong>가족 여행지로는 비추천</strong>
+                    . 간다면 리조트 콕 휴식 필수.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2: Kota Kinabalu -->
+          <div
+            class="bg-white rounded-2xl card-shadow flex flex-col h-full border border-gray-100 relative overflow-hidden destination-card"
+            data-destination="kotakinabalu"
+          >
+            <!-- Recommended Badge -->
+            <div
+              class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10 animate-pulse"
+            >
+              <i class="fas fa-star mr-1"></i>
+              추천
+            </div>
+            <div class="image-container">
+              <img
+                alt="Kota Kinabalu"
+                class="w-full h-full object-cover"
+                src="https://mblogthumb-phinf.pstatic.net/MjAyNDAxMDlfMTkz/MDAxNzA0NzYxMTY4MjA2.WSdx-wKH1_5zIncmMzoR5Kobh69UZyyAZ4i_4VnFBU0g.3T0WcGGN7NmpUz0serR4j64FCiUamwrbznXqdwSkPL8g.JPEG.kkdaykr/shutterstock_1600006843.jpg?type=w800"
+              />
+              <div class="image-overlay">
+                <h2 class="text-white font-bold text-2xl">코타키나발루</h2>
+                <p class="text-white text-sm opacity-90">
+                  🇲🇾 말레이시아 (세계 3대 석양)
+                </p>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="info-row">
+                  <div class="info-icon text-blue-600">
+                    <i class="fas fa-plane-arrival"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-gray-700">
+                      이동 (난이도: 하)
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1">
+                      인천 직항 약 5~6시간
+                    </p>
+                    <p class="text-xs text-green-600 font-bold mt-0.5">
+                      👍 부모님께 적합
+                    </p>
+                  </div>
+                </div>
+                <div class="info-row">
+                  <div class="info-icon text-gray-500">
+                    <i class="fas fa-cloud-showers-heavy"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-gray-700">10월 기후</p>
+                    <p class="text-xs text-gray-500 mt-1">
+                      우기 시즌 (스콜성 비)
+                    </p>
+                    <p class="text-xs text-gray-500 mt-0.5">
+                      비 온 뒤 석양은 더 아름다움
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="pros-cons-box flex-1">
+                <div class="mb-3">
+                  <p
+                    class="text-sm font-bold text-gray-700 mb-1 flex items-center"
+                  >
+                    <i class="fas fa-thumbs-up text-blue-500 mr-2"></i>
+                    장점
+                  </p>
+                  <p class="text-xs text-gray-600 pl-6">
+                    편리한 직항, 리조트 시설 우수, 반딧불 투어 등 이색 체험
+                    가능.
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="text-sm font-bold text-gray-700 mb-1 flex items-center"
+                  >
+                    <i class="fas fa-thumbs-down text-red-500 mr-2"></i>
+                    단점
+                  </p>
+                  <p class="text-xs text-gray-600 pl-6">
+                    비가 올 경우 야외 활동 제한. 바다색이 몰디브급은 아님.
+                  </p>
+                </div>
+              </div>
+              <div class="tip-box bg-blue-50 border border-blue-200 mt-auto">
+                <div class="text-blue-500 mr-3 text-lg mt-1">
+                  <i class="fas fa-wheelchair"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-blue-800 mb-1">
+                    부모님 체력 고려 사항
+                  </p>
+                  <p class="text-xs text-blue-700 leading-relaxed">
+                    리조트 내 수영장과 휴식을 메인으로 하고, 저녁
+                    <strong>선셋 크루즈</strong>
+                    정도로 가볍게 즐기기 좋음. 이동 동선이 짧아 편안함.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="gallery.js"></script>
+    <script>
+      (function () {
+        function setScale() {
+          var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+          document.documentElement.style.setProperty("--scale", s);
+        }
+        setScale();
+        window.addEventListener("resize", setScale);
+      })();
+    </script>
+  </body>
+</html>

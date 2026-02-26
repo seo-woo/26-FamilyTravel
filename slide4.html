@@ -1,0 +1,375 @@
+<!doctype html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>예산 비교</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Jua&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: #f3f4f6;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .slide-viewport {
+        width: 1280px;
+        height: 720px;
+        flex-shrink: 0;
+        transform: scale(var(--scale, 1));
+        transform-origin: center center;
+      }
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        display: flex;
+        flex-direction: column;
+        background-color: #fdfbf7;
+        position: relative;
+        overflow: hidden;
+        padding: 40px;
+        box-sizing: border-box;
+      }
+      .card-shadow {
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+      .budget-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+      .budget-table th {
+        background-color: #4b5563;
+        color: white;
+        font-weight: 500;
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 0.9rem;
+      }
+      .budget-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #e5e7eb;
+        color: #374151;
+        font-size: 0.9rem;
+      }
+      .budget-table tr:last-child td {
+        border-bottom: none;
+      }
+      .budget-table tr:hover {
+        background-color: #f9fafb;
+      }
+      .cost-highlight {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+      }
+      .total-highlight {
+        color: #059669; /* Green-600 */
+        font-weight: 900;
+        font-size: 1rem;
+      }
+      .note-box {
+        background-color: #fffbeb;
+        border-left: 4px solid #f59e0b;
+        padding: 16px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-viewport">
+      <div class="slide-container">
+        <!-- Header Section -->
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <div class="flex items-center mb-1">
+              <span
+                class="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide mr-2"
+              >
+                Budget Plan
+              </span>
+              <p
+                class="text-gray-500 text-sm font-medium tracking-wider uppercase"
+              >
+                5인 가족 기준 (5~7일)
+              </p>
+            </div>
+            <h1
+              class="text-4xl font-black text-gray-800"
+              style="font-family: &quot;Jua&quot;, sans-serif"
+            >
+              여행지별 예상 예산 비교
+            </h1>
+          </div>
+          <div
+            class="bg-white px-4 py-2 rounded-lg card-shadow border-l-4 border-green-500"
+          >
+            <div class="flex items-center">
+              <i class="fas fa-coins text-green-500 mr-2"></i>
+              <p class="text-sm font-bold text-gray-700">총 예산 요약</p>
+            </div>
+            <p class="text-xs text-gray-500">
+              항공+숙박+현지비 포함 (쇼핑 제외)
+            </p>
+          </div>
+        </div>
+        <!-- Content Layout -->
+        <div class="flex gap-8 h-full">
+          <!-- Left Column: Table -->
+          <div class="w-3/5 flex flex-col">
+            <table class="budget-table mb-4">
+              <thead>
+                <tr>
+                  <th class="w-1/4">여행지</th>
+                  <th class="w-1/5">항공(1인)</th>
+                  <th class="w-1/5">숙박(1박)</th>
+                  <th class="w-1/5">현지비(1인)</th>
+                  <th class="w-1/5 text-right">총 예상(5인)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="flex items-center font-bold text-gray-700">
+                    <span class="w-6 text-center mr-2">🇹🇼</span>
+                    대만
+                  </td>
+                  <td class="cost-highlight">20~40만</td>
+                  <td class="cost-highlight">8~15만</td>
+                  <td class="cost-highlight">~10만</td>
+                  <td class="text-right total-highlight">180~250만</td>
+                </tr>
+                <tr>
+                  <td class="flex items-center font-bold text-gray-700">
+                    <span class="w-6 text-center mr-2">🇻🇳</span>
+                    다낭
+                  </td>
+                  <td class="cost-highlight">30~60만</td>
+                  <td class="cost-highlight">8~20만</td>
+                  <td class="cost-highlight">8~12만</td>
+                  <td class="text-right total-highlight">200~280만</td>
+                </tr>
+                <tr>
+                  <td class="flex items-center font-bold text-gray-700">
+                    <span class="w-6 text-center mr-2">🇭🇰</span>
+                    홍콩
+                  </td>
+                  <td class="cost-highlight">30~50만</td>
+                  <td class="cost-highlight">10~20만</td>
+                  <td class="cost-highlight">12~15만</td>
+                  <td class="text-right total-highlight">220~300만</td>
+                </tr>
+                <tr>
+                  <td class="flex items-center font-bold text-gray-700">
+                    <span class="w-6 text-center mr-2">🇻🇳</span>
+                    사파
+                    <span class="text-xs font-normal text-gray-400 ml-1">
+                      (이동포함)
+                    </span>
+                  </td>
+                  <td class="cost-highlight">40~80만</td>
+                  <td class="cost-highlight">10~20만</td>
+                  <td class="cost-highlight">6~10만</td>
+                  <td class="text-right total-highlight">250~400만</td>
+                </tr>
+                <tr>
+                  <td class="flex items-center font-bold text-gray-700">
+                    <span class="w-6 text-center mr-2">🇲🇾</span>
+                    코타
+                  </td>
+                  <td class="cost-highlight">40~70만</td>
+                  <td class="cost-highlight">15~25만</td>
+                  <td class="cost-highlight">10~15만</td>
+                  <td class="text-right total-highlight">280~350만</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="flex items-center font-bold text-gray-700">
+                    <span class="w-6 text-center mr-2">🇮🇩</span>
+                    발리/우붓
+                  </td>
+                  <td class="cost-highlight">50~90만</td>
+                  <td class="cost-highlight">20~40만</td>
+                  <td class="cost-highlight">10~20만</td>
+                  <td class="text-right total-highlight text-red-600">
+                    350~500만
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note-box mt-auto">
+              <p class="font-bold text-yellow-800 mb-1 text-sm">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                예산 책정 참고사항
+              </p>
+              <ul class="text-xs text-yellow-800 list-disc pl-4 space-y-1">
+                <li>
+                  <p>
+                    위 금액은
+                    <strong>10월 비수기/평수기 기준</strong>
+                    이며, 예약 시점에 따라 항공권 가격 변동이 큽니다.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    숙박비는 5인 가족 기준(객실 2개 또는 패밀리 스위트 1개)
+                    평균가입니다.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    현지비는 식비, 교통비, 기본 입장료를 포함하며 쇼핑 및 고가
+                    투어는 제외되었습니다.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Right Column: Chart & Visuals -->
+          <div class="w-2/5 flex flex-col h-full">
+            <div
+              class="bg-white p-6 rounded-2xl card-shadow flex-1 flex flex-col"
+            >
+              <h3 class="font-bold text-gray-700 mb-4 text-center">
+                총 예상 비용 비교 (최대치 기준)
+              </h3>
+              <div class="flex-1 relative">
+                <canvas id="budgetChart"></canvas>
+              </div>
+              <div class="mt-4 text-center">
+                <p class="text-xs text-gray-400">단위: 만 원 (KRW)</p>
+              </div>
+            </div>
+            <!-- Quick Insight -->
+            <div class="mt-4 grid grid-cols-2 gap-4">
+              <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                <div class="flex items-center mb-2">
+                  <i class="fas fa-piggy-bank text-blue-500 mr-2"></i>
+                  <p class="font-bold text-blue-800 text-sm">가성비 추천</p>
+                </div>
+                <p class="text-xs text-blue-700 font-medium">대만 &amp; 다낭</p>
+                <p class="text-xs text-blue-600 mt-1">200만원 대 초반 가능</p>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-xl border border-purple-100">
+                <div class="flex items-center mb-2">
+                  <i class="fas fa-crown text-purple-500 mr-2"></i>
+                  <p class="font-bold text-purple-800 text-sm">럭셔리 휴양</p>
+                </div>
+                <p class="text-xs text-purple-700 font-medium">발리/우붓</p>
+                <p class="text-xs text-purple-600 mt-1">
+                  풀빌라/직항 시 예산 상승
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        const ctx = document.getElementById("budgetChart").getContext("2d");
+        const budgetChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: ["대만", "다낭", "홍콩", "코타", "사파", "발리"],
+            datasets: [
+              {
+                label: "최대 예상 비용 (만 원)",
+                data: [250, 280, 300, 350, 400, 500],
+                backgroundColor: [
+                  "#3B82F6", // Blue
+                  "#3B82F6",
+                  "#6366F1", // Indigo
+                  "#8B5CF6", // Purple
+                  "#EC4899", // Pink
+                  "#EF4444", // Red
+                ],
+                borderRadius: 6,
+                barThickness: 25,
+              },
+            ],
+          },
+          options: {
+            indexAxis: "y", // Horizontal bar chart
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return context.raw + " 만 원";
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                grid: {
+                  display: false,
+                },
+                ticks: {
+                  font: {
+                    family: "'Noto Sans KR', sans-serif",
+                    size: 10,
+                  },
+                },
+              },
+              y: {
+                grid: {
+                  display: false,
+                },
+                ticks: {
+                  font: {
+                    family: "'Noto Sans KR', sans-serif",
+                    weight: "bold",
+                    size: 12,
+                  },
+                },
+              },
+            },
+            layout: {
+              padding: {
+                left: 10,
+                right: 20,
+              },
+            },
+          },
+        });
+      </script>
+    </div>
+    <script>
+      (function () {
+        function setScale() {
+          var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+          document.documentElement.style.setProperty("--scale", s);
+        }
+        setScale();
+        window.addEventListener("resize", setScale);
+      })();
+    </script>
+  </body>
+</html>

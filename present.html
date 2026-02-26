@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>슬라이드 프레젠테이션</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #111;
+      }
+      #frameWrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      #slideFrame {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        background: #fff;
+      }
+      .nav-btn {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 56px;
+        height: 56px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .nav-btn:hover {
+        background: #fff;
+        transform: translateY(-50%) scale(1.05);
+      }
+      .nav-btn:active {
+        transform: translateY(-50%) scale(0.98);
+      }
+      .nav-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+      #btnPrev {
+        left: 16px;
+      }
+      #btnNext {
+        right: 16px;
+      }
+      .counter {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 14px;
+        font-family: sans-serif;
+        z-index: 20;
+      }
+      .swipe-hint {
+        position: fixed;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+        z-index: 15;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="frameWrap">
+      <iframe id="slideFrame" title="슬라이드" src="index.html"></iframe>
+    </div>
+    <button
+      type="button"
+      id="btnPrev"
+      class="nav-btn"
+      aria-label="이전 슬라이드"
+    >
+      ‹
+    </button>
+    <button
+      type="button"
+      id="btnNext"
+      class="nav-btn"
+      aria-label="다음 슬라이드"
+    >
+      ›
+    </button>
+    <span class="counter" id="counter">1 / 6</span>
+    <span class="swipe-hint" id="hint">← 스와이프 또는 버튼으로 이동 →</span>
+    <script>
+      (function () {
+        var SLIDES = [
+          "index.html",
+          "slide1.html",
+          "slide2.html",
+          "slide3.html",
+          "slide4.html",
+          "slide5.html",
+        ];
+        var total = SLIDES.length;
+        var current = 0;
+        var frame = document.getElementById("slideFrame");
+        var counterEl = document.getElementById("counter");
+        var btnPrev = document.getElementById("btnPrev");
+        var btnNext = document.getElementById("btnNext");
+        var hint = document.getElementById("hint");
+        var touchStartX = 0;
+        var SWIPE_THRESHOLD = 60;
+        function go(n) {
+          current = (n + total) % total;
+          if (current < 0) current = 0;
+          if (current >= total) current = total - 1;
+          frame.src = SLIDES[current];
+          counterEl.textContent = current + 1 + " / " + total;
+          btnPrev.disabled = current === 0;
+          btnNext.disabled = current === total - 1;
+          if (hint) hint.style.opacity = current === 0 ? "0.5" : "0.5";
+        }
+        function next() {
+          if (current < total - 1) go(current + 1);
+        }
+        function prev() {
+          if (current > 0) go(current - 1);
+        }
+        btnPrev.addEventListener("click", prev);
+        btnNext.addEventListener("click", next);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowLeft") prev();
+          else if (e.key === "ArrowRight" || e.key === " ") {
+            e.preventDefault();
+            next();
+          }
+        });
+        document.addEventListener(
+          "touchstart",
+          function (e) {
+            touchStartX = e.touches[0].clientX;
+          },
+          { passive: true },
+        );
+        document.addEventListener(
+          "touchend",
+          function (e) {
+            var touchEndX = e.changedTouches[0].clientX;
+            var delta = touchStartX - touchEndX;
+            if (delta > SWIPE_THRESHOLD) next();
+            else if (delta < -SWIPE_THRESHOLD) prev();
+          },
+          { passive: true },
+        );
+        btnPrev.disabled = true;
+      })();
+    </script>
+  </body>
+</html>
