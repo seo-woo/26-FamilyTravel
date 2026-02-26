@@ -7,6 +7,9 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+*{
+  box-sizing: border-box;
+}
 
 .slide-viewport {
   width: 100%;
@@ -1027,12 +1030,19 @@ body {
   left: -50px;
   opacity: 0.4;
 }
+.index-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+}
 .index-left {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 4rem;
   z-index: 10;
 }
 .index-header {
@@ -1129,6 +1139,7 @@ body {
   justify-content: center;
   padding-right: 3rem;
   padding-left: 1rem;
+  box-sizing: border-box;
 }
 .theme-link-grid {
   display: grid;
