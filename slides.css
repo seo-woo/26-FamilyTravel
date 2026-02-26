@@ -98,12 +98,12 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding: 16px 12px;
+    padding: 8px 6px;
   }
 
   .slide-container {
-    padding: 16px 12px;
-    border-radius: 16px;
+    padding: 12px 8px;
+    border-radius: 14px;
   }
 
   .image-container {
@@ -1150,9 +1150,7 @@ body {
 .theme-link-card:hover {
   transform: translateX(0.25rem);
 }
-.theme-link-card.theme-link-card--highlight {
-  border-left: 4px solid #60a5fa;
-}
+
 .theme-link-card .card-thumb {
   width: 5rem;
   height: 5rem;
