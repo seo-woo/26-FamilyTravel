@@ -24,30 +24,30 @@
   }
 
   /* 그리드: 카드/콘텐츠 모바일에서 1열 */
-  .slide-container .grid {
+  .slide-container .cards-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
   }
 
   /* 헤더: 제목과 정보박스 줄바꿈 */
-  .slide-container > .flex.items-center.justify-between {
+  .slide-container > .slide-header {
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-bottom: 1rem !important;
   }
 
-  .slide-container > .flex.items-center.justify-between > div:last-child {
+  .slide-container > .slide-header > div:last-child {
     width: 100%;
     max-width: 100%;
   }
 
   /* 제목 폰트 크기 */
-  .slide-container h1 {
+  .slide-container .slide-title {
     font-size: 1.5rem !important;
     line-height: 1.3 !important;
   }
 
-  .slide-container h2 {
+  .slide-container .overlay-title {
     font-size: 1.25rem !important;
   }
 

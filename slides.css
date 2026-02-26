@@ -1,0 +1,408 @@
+body {
+  margin: 0;
+  padding: 24px 16px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.slide-viewport {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.slide-container {
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fdfbf7;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 4px 6px -2px rgba(0, 0, 0, 0.03);
+}
+
+.card-shadow {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.image-container {
+  height: 180px;
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  position: relative;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.info-icon {
+  width: 20px;
+  text-align: center;
+  margin-right: 8px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .slide-container {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .image-container {
+    height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .slide-container {
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .image-container {
+    height: 140px;
+  }
+}
+
+/* ========== 시맨틱 컴포넌트 (Tailwind 유틸 → CSS 클래스) ========== */
+
+/* 홈 버튼 */
+.btn-home {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+.btn-home:hover {
+  background-color: #fff;
+}
+.btn-home-icon {
+  margin-right: 0.25rem;
+}
+
+/* 헤더 */
+.slide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.slide-header-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.badge-theme {
+  display: inline-block;
+  background-color: #d1fae5;
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.5rem;
+}
+.slide-subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.slide-title {
+  font-family: "Jua", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* 체크포인트 박스 */
+.checkpoint-box {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #facc15;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+.checkpoint-header {
+  display: flex;
+  align-items: center;
+}
+.checkpoint-icon {
+  color: #eab308;
+  margin-right: 0.5rem;
+}
+.checkpoint-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0;
+}
+.checkpoint-desc {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0.25rem 0 0 0;
+}
+
+/* 카드 그리드 */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  flex: 1;
+  min-height: 0;
+}
+
+/* 목적지 카드 */
+.destination-card {
+  background-color: #fff;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #f3f4f6;
+  cursor: pointer;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.destination-card:hover {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+  transform: translateY(-5px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.overlay-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0;
+}
+.overlay-subtitle {
+  color: #fff;
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin: 0;
+}
+.card-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-section {
+  margin-bottom: 1rem;
+}
+
+/* 정보 아이콘 색상 */
+.info-icon--blue {
+  color: #3b82f6;
+}
+.info-icon--yellow {
+  color: #eab308;
+}
+.info-icon--gray {
+  color: #9ca3af;
+}
+.info-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 0.125rem 0;
+}
+.info-text {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0;
+}
+.info-text--warning {
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 500;
+  margin: 0;
+}
+.info-text--highlight {
+  font-size: 0.75rem;
+  color: #16a34a;
+  font-weight: 500;
+  margin: 0;
+}
+.info-text--blue {
+  font-size: 0.75rem;
+  color: #2563eb;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* 장단점 박스 */
+.pros-cons-box {
+  flex: 1;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.pros-cons-item {
+  margin-bottom: 0.5rem;
+}
+.pros-cons-item:last-child {
+  margin-bottom: 0;
+}
+.pros-cons-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 0.25rem 0;
+}
+.pros-icon {
+  color: #3b82f6;
+}
+.cons-icon {
+  color: #ef4444;
+}
+.pros-text {
+  font-size: 0.75rem;
+  color: #4b5563;
+  padding-left: 1rem;
+  border-left: 2px solid #bfdbfe;
+  margin: 0;
+}
+.cons-text {
+  font-size: 0.75rem;
+  color: #4b5563;
+  padding-left: 1rem;
+  border-left: 2px solid #fecaca;
+  margin: 0;
+}
+
+/* 부모님 Tip 박스 (색상 변형) */
+.tip-box {
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+.tip-box--green {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+.tip-box--yellow {
+  background-color: #fefce8;
+  border: 1px solid #fef08a;
+}
+.tip-box--purple {
+  background-color: #faf5ff;
+  border: 1px solid #e9d5ff;
+}
+.tip-box-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.tip-box-icon {
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+}
+.tip-box--green .tip-box-icon {
+  color: #16a34a;
+}
+.tip-box--yellow .tip-box-icon {
+  color: #ca8a04;
+}
+.tip-box--purple .tip-box-icon {
+  color: #9333ea;
+}
+.tip-box-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+.tip-box--green .tip-box-title {
+  color: #166534;
+}
+.tip-box--yellow .tip-box-title {
+  color: #854d0e;
+}
+.tip-box--purple .tip-box-title {
+  color: #6b21a8;
+}
+.tip-box-text {
+  font-size: 0.75rem;
+  line-height: 1.375;
+  margin: 0;
+}
+.tip-box--green .tip-box-text {
+  color: #15803d;
+}
+.tip-box--yellow .tip-box-text {
+  color: #a16207;
+}
+.tip-box--purple .tip-box-text {
+  color: #7e22ce;
+}
+

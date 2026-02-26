@@ -6,10 +6,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>산 테마 여행지 비교</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Jua&amp;display=swap"
       rel="stylesheet"
     />
@@ -19,214 +15,88 @@
     />
     <link href="gallery.css" rel="stylesheet" />
     <link href="responsive.css" rel="stylesheet" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: "Noto Sans KR", sans-serif;
-        background-color: #f3f4f6;
-        min-height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-      .slide-viewport {
-        width: 1280px;
-        height: 720px;
-        flex-shrink: 0;
-        transform: scale(var(--scale, 1));
-        transform-origin: center center;
-      }
-      .slide-container {
-        width: 1280px;
-        height: 720px;
-        display: flex;
-        flex-direction: column;
-        background-color: #fdfbf7;
-        position: relative;
-        overflow: hidden;
-        padding: 40px;
-        box-sizing: border-box;
-      }
-      .card-shadow {
-        box-shadow:
-          0 4px 6px -1px rgba(0, 0, 0, 0.05),
-          0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        transition: transform 0.2s ease-in-out;
-      }
-      .card-shadow:hover {
-        transform: translateY(-5px);
-        box-shadow:
-          0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      }
-      .tag-pill {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.125rem 0.5rem;
-        border-radius: 9999px;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-      .image-container {
-        height: 140px;
-        overflow: hidden;
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem;
-        position: relative;
-      }
-      .image-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 0.5rem 1rem;
-      }
-      .info-row {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 0.5rem;
-      }
-      .info-icon {
-        width: 20px;
-        text-align: center;
-        margin-right: 8px;
-        margin-top: 3px;
-        flex-shrink: 0;
-      }
-    </style>
+    <link href="slides.css" rel="stylesheet" />
   </head>
   <body>
     <div class="slide-viewport">
       <div class="slide-container">
-        <a
-          href="index.html"
-          class="absolute top-4 left-4 z-50 bg-white bg-opacity-80 text-gray-700 text-sm font-semibold px-3 py-1 rounded-full shadow flex items-center"
-        >
-          <i class="fas fa-home mr-1"></i>
+        <a href="index.html" class="btn-home">
+          <i class="fas fa-home btn-home-icon"></i>
           홈으로
         </a>
         <!-- Header Section -->
-        <div class="flex items-center justify-between mb-6">
+        <div class="slide-header">
           <div>
-            <div class="flex items-center mb-1">
-              <span
-                class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide mr-2"
-              >
-                Mountain Theme
-              </span>
-              <p
-                class="text-gray-500 text-sm font-medium tracking-wider uppercase"
-              >
-                10월 추천 여행지
-              </p>
+            <div class="slide-header-top">
+              <span class="badge-theme">Mountain Theme</span>
+              <p class="slide-subtitle">10월 추천 여행지</p>
             </div>
-            <h1
-              class="text-4xl font-black text-gray-800"
-              style="font-family: &quot;Jua&quot;, sans-serif"
-            >
-              산(Mountain) 테마 비교
-            </h1>
+            <h1 class="slide-title">산(Mountain) 테마 비교</h1>
           </div>
-          <div
-            class="bg-white px-4 py-2 rounded-lg card-shadow border-l-4 border-yellow-400"
-          >
-            <div class="flex items-center">
-              <i class="fas fa-check-circle text-yellow-500 mr-2"></i>
-              <p class="text-sm font-bold text-gray-700">체크 포인트</p>
+          <div class="checkpoint-box">
+            <div class="checkpoint-header">
+              <i class="fas fa-check-circle checkpoint-icon"></i>
+              <p class="checkpoint-title">체크 포인트</p>
             </div>
-            <p class="text-xs text-gray-500">
+            <p class="checkpoint-desc">
               부모님 동반 시 이동 난이도와 도보량이 핵심 결정 요소
             </p>
           </div>
         </div>
         <!-- Cards Container -->
-        <div class="grid grid-cols-3 gap-6 flex-1 h-full">
+        <div class="cards-grid">
           <!-- Card 1: Sapa -->
-          <div
-            class="bg-white rounded-2xl card-shadow flex flex-col h-full border border-gray-100 destination-card"
-            data-destination="sapa"
-          >
+          <div class="destination-card" data-destination="sapa">
             <div class="image-container">
               <img
                 alt="Sapa"
-                class="w-full h-full object-cover"
+                class="card-img"
                 src="https://cdn.tourtoctoc.com/news/photo/202405/4752_29383_3432.jpg"
               />
               <div class="image-overlay">
-                <h2 class="text-white font-bold text-xl">사파 (Sapa)</h2>
-                <p class="text-white text-xs opacity-90">🇻🇳 베트남 북부 산악</p>
+                <h2 class="overlay-title">사파 (Sapa)</h2>
+                <p class="overlay-subtitle">🇻🇳 베트남 북부 산악</p>
               </div>
             </div>
-            <div class="p-5 flex-1 flex flex-col">
-              <div class="mb-4">
+            <div class="card-body">
+              <div class="card-section">
                 <div class="info-row">
-                  <div class="info-icon text-blue-500">
+                  <div class="info-icon info-icon--blue">
                     <i class="fas fa-plane-arrival"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-gray-700">
-                      이동 (난이도: 상)
-                    </p>
-                    <p class="text-xs text-gray-500">
-                      하노이행(4.5h) + 버스/기차(6~7h)
-                    </p>
-                    <p class="text-xs text-red-500 font-medium">
-                      *직항 없음, 이동 피로도 높음
-                    </p>
+                    <p class="info-label">이동 (난이도: 상)</p>
+                    <p class="info-text">하노이행(4.5h) + 버스/기차(6~7h)</p>
+                    <p class="info-text--warning">*직항 없음, 이동 피로도 높음</p>
                   </div>
                 </div>
                 <div class="info-row">
-                  <div class="info-icon text-yellow-500">
+                  <div class="info-icon info-icon--yellow">
                     <i class="fas fa-sun"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-gray-700">
-                      10월 기후 (Best)
-                    </p>
-                    <p class="text-xs text-gray-500">건기 시작, 맑고 선선함</p>
-                    <p class="text-xs text-green-600 font-medium">
-                      ✨ 황금빛 계단식 논 절정기
-                    </p>
+                    <p class="info-label">10월 기후 (Best)</p>
+                    <p class="info-text">건기 시작, 맑고 선선함</p>
+                    <p class="info-text--highlight">✨ 황금빛 계단식 논 절정기</p>
                   </div>
                 </div>
               </div>
-              <div class="flex-1 bg-gray-50 rounded-lg p-3 mb-3">
-                <div class="mb-2">
-                  <p class="text-xs font-bold text-gray-700 mb-1">
-                    <span class="text-blue-500">👍</span>
-                    장점
-                  </p>
-                  <p
-                    class="text-xs text-gray-600 pl-4 border-l-2 border-blue-200"
-                  >
-                    압도적인 고산 풍경과 자연 힐링
-                  </p>
+              <div class="pros-cons-box">
+                <div class="pros-cons-item">
+                  <p class="pros-cons-label"><span class="pros-icon">👍</span> 장점</p>
+                  <p class="pros-text">압도적인 고산 풍경과 자연 힐링</p>
                 </div>
-                <div>
-                  <p class="text-xs font-bold text-gray-700 mb-1">
-                    <span class="text-red-500">👎</span>
-                    단점
-                  </p>
-                  <p
-                    class="text-xs text-gray-600 pl-4 border-l-2 border-red-200"
-                  >
-                    긴 이동시간, 도심 편의시설 부족
-                  </p>
+                <div class="pros-cons-item">
+                  <p class="pros-cons-label"><span class="cons-icon">👎</span> 단점</p>
+                  <p class="cons-text">긴 이동시간, 도심 편의시설 부족</p>
                 </div>
               </div>
-              <div class="bg-green-50 border border-green-200 rounded-lg p-3">
-                <div class="flex items-center mb-1">
-                  <i class="fas fa-heartbeat text-green-600 mr-2 text-xs"></i>
-                  <p class="text-xs font-bold text-green-800">
-                    부모님 체력 Tip
-                  </p>
+              <div class="tip-box tip-box--green">
+                <div class="tip-box-header">
+                  <i class="fas fa-heartbeat tip-box-icon"></i>
+                  <p class="tip-box-title">부모님 체력 Tip</p>
                 </div>
-                <p class="text-xs text-green-700 leading-snug">
+                <p class="tip-box-text">
                   트레킹보다는 '판시판 케이블카' 등 차량/탑승 시설 위주 일정
                   필수. 이동 중간 휴식 자주 필요.
                 </p>
@@ -234,86 +104,57 @@
             </div>
           </div>
           <!-- Card 2: Ubud -->
-          <div
-            class="bg-white rounded-2xl card-shadow flex flex-col h-full border border-gray-100 destination-card"
-            data-destination="ubud"
-          >
+          <div class="destination-card" data-destination="ubud">
             <div class="image-container">
               <img
                 alt="Ubud"
-                class="w-full h-full object-cover"
+                class="card-img"
                 src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/54/f4/01/saraswati-temple-in-ubud.jpg?w=600&h=400&s=1"
               />
               <div class="image-overlay">
-                <h2 class="text-white font-bold text-xl">우붓 (Ubud)</h2>
-                <p class="text-white text-xs opacity-90">🇮🇩 발리, 인도네시아</p>
+                <h2 class="overlay-title">우붓 (Ubud)</h2>
+                <p class="overlay-subtitle">🇮🇩 발리, 인도네시아</p>
               </div>
             </div>
-            <div class="p-5 flex-1 flex flex-col">
-              <div class="mb-4">
+            <div class="card-body">
+              <div class="card-section">
                 <div class="info-row">
-                  <div class="info-icon text-blue-500">
+                  <div class="info-icon info-icon--blue">
                     <i class="fas fa-plane"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-gray-700">
-                      이동 (난이도: 중)
-                    </p>
-                    <p class="text-xs text-gray-500">
-                      인천↔발리 직항(7h) or 경유 1회
-                    </p>
-                    <p class="text-xs text-gray-500">
-                      공항에서 우붓까지 차량 1.5h
-                    </p>
+                    <p class="info-label">이동 (난이도: 중)</p>
+                    <p class="info-text">인천↔발리 직항(7h) or 경유 1회</p>
+                    <p class="info-text">공항에서 우붓까지 차량 1.5h</p>
                   </div>
                 </div>
                 <div class="info-row">
-                  <div class="info-icon text-yellow-500">
+                  <div class="info-icon info-icon--yellow">
                     <i class="fas fa-cloud-sun"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-gray-700">
-                      10월 기후 (Good)
-                    </p>
-                    <p class="text-xs text-gray-500">우기 전 온화한 날씨</p>
-                    <p class="text-xs text-gray-500">
-                      초록빛 정글 뷰 감상 적합
-                    </p>
+                    <p class="info-label">10월 기후 (Good)</p>
+                    <p class="info-text">우기 전 온화한 날씨</p>
+                    <p class="info-text">초록빛 정글 뷰 감상 적합</p>
                   </div>
                 </div>
               </div>
-              <div class="flex-1 bg-gray-50 rounded-lg p-3 mb-3">
-                <div class="mb-2">
-                  <p class="text-xs font-bold text-gray-700 mb-1">
-                    <span class="text-blue-500">👍</span>
-                    장점
-                  </p>
-                  <p
-                    class="text-xs text-gray-600 pl-4 border-l-2 border-blue-200"
-                  >
-                    고급 리조트, 요가/스파 등 휴양 특화
-                  </p>
+              <div class="pros-cons-box">
+                <div class="pros-cons-item">
+                  <p class="pros-cons-label"><span class="pros-icon">👍</span> 장점</p>
+                  <p class="pros-text">고급 리조트, 요가/스파 등 휴양 특화</p>
                 </div>
-                <div>
-                  <p class="text-xs font-bold text-gray-700 mb-1">
-                    <span class="text-red-500">👎</span>
-                    단점
-                  </p>
-                  <p
-                    class="text-xs text-gray-600 pl-4 border-l-2 border-red-200"
-                  >
-                    좁은 도로/교통 체증, 계단 많음
-                  </p>
+                <div class="pros-cons-item">
+                  <p class="pros-cons-label"><span class="cons-icon">👎</span> 단점</p>
+                  <p class="cons-text">좁은 도로/교통 체증, 계단 많음</p>
                 </div>
               </div>
-              <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                <div class="flex items-center mb-1">
-                  <i class="fas fa-heartbeat text-yellow-600 mr-2 text-xs"></i>
-                  <p class="text-xs font-bold text-yellow-800">
-                    부모님 체력 Tip
-                  </p>
+              <div class="tip-box tip-box--yellow">
+                <div class="tip-box-header">
+                  <i class="fas fa-heartbeat tip-box-icon"></i>
+                  <p class="tip-box-title">부모님 체력 Tip</p>
                 </div>
-                <p class="text-xs text-yellow-700 leading-snug">
+                <p class="tip-box-text">
                   도보 이동은 최소화하고 '차량 투어' 이용. 일정 절반은
                   풀빌라/리조트 내 휴식 및 스파 추천.
                 </p>
@@ -321,86 +162,57 @@
             </div>
           </div>
           <!-- Card 3: Chiang Mai -->
-          <div
-            class="bg-white rounded-2xl card-shadow flex flex-col h-full border border-gray-100 destination-card"
-            data-destination="chiangmai"
-          >
+          <div class="destination-card" data-destination="chiangmai">
             <div class="image-container">
               <img
                 alt="Chiang Mai"
-                class="w-full h-full object-cover"
+                class="card-img"
                 src="https://cdn.sanity.io/images/nxpteyfv/goguides/d263fd5a214c4c2c7b491dd02155c80afe2881d7-1600x1066.jpg"
               />
               <div class="image-overlay">
-                <h2 class="text-white font-bold text-xl">치앙마이</h2>
-                <p class="text-white text-xs opacity-90">🇹🇭 태국 북부</p>
+                <h2 class="overlay-title">치앙마이</h2>
+                <p class="overlay-subtitle">🇹🇭 태국 북부</p>
               </div>
             </div>
-            <div class="p-5 flex-1 flex flex-col">
-              <div class="mb-4">
+            <div class="card-body">
+              <div class="card-section">
                 <div class="info-row">
-                  <div class="info-icon text-blue-500">
+                  <div class="info-icon info-icon--blue">
                     <i class="fas fa-plane-departure"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-gray-700">
-                      이동 (난이도: 중하)
-                    </p>
-                    <p class="text-xs text-gray-500">
-                      직항(5.5h) 또는 경유 다양함
-                    </p>
-                    <p class="text-xs text-blue-600 font-medium">
-                      *공항-시내 접근성 매우 좋음
-                    </p>
+                    <p class="info-label">이동 (난이도: 중하)</p>
+                    <p class="info-text">직항(5.5h) 또는 경유 다양함</p>
+                    <p class="info-text--blue">*공항-시내 접근성 매우 좋음</p>
                   </div>
                 </div>
                 <div class="info-row">
-                  <div class="info-icon text-gray-400">
+                  <div class="info-icon info-icon--gray">
                     <i class="fas fa-cloud-rain"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-gray-700">
-                      10월 기후 (So-so)
-                    </p>
-                    <p class="text-xs text-gray-500">
-                      우기 끝자락, 소나기 가능성
-                    </p>
-                    <p class="text-xs text-gray-500">비온 뒤 맑아지는 날씨</p>
+                    <p class="info-label">10월 기후 (So-so)</p>
+                    <p class="info-text">우기 끝자락, 소나기 가능성</p>
+                    <p class="info-text">비온 뒤 맑아지는 날씨</p>
                   </div>
                 </div>
               </div>
-              <div class="flex-1 bg-gray-50 rounded-lg p-3 mb-3">
-                <div class="mb-2">
-                  <p class="text-xs font-bold text-gray-700 mb-1">
-                    <span class="text-blue-500">👍</span>
-                    장점
-                  </p>
-                  <p
-                    class="text-xs text-gray-600 pl-4 border-l-2 border-blue-200"
-                  >
-                    저렴한 물가, 맛집 탐방, 여유로운 분위기
-                  </p>
+              <div class="pros-cons-box">
+                <div class="pros-cons-item">
+                  <p class="pros-cons-label"><span class="pros-icon">👍</span> 장점</p>
+                  <p class="pros-text">저렴한 물가, 맛집 탐방, 여유로운 분위기</p>
                 </div>
-                <div>
-                  <p class="text-xs font-bold text-gray-700 mb-1">
-                    <span class="text-red-500">👎</span>
-                    단점
-                  </p>
-                  <p
-                    class="text-xs text-gray-600 pl-4 border-l-2 border-red-200"
-                  >
-                    갑작스러운 비로 야외 일정 변동 가능
-                  </p>
+                <div class="pros-cons-item">
+                  <p class="pros-cons-label"><span class="cons-icon">👎</span> 단점</p>
+                  <p class="cons-text">갑작스러운 비로 야외 일정 변동 가능</p>
                 </div>
               </div>
-              <div class="bg-purple-50 border border-purple-200 rounded-lg p-3">
-                <div class="flex items-center mb-1">
-                  <i class="fas fa-heartbeat text-purple-600 mr-2 text-xs"></i>
-                  <p class="text-xs font-bold text-purple-800">
-                    부모님 체력 Tip
-                  </p>
+              <div class="tip-box tip-box--purple">
+                <div class="tip-box-header">
+                  <i class="fas fa-heartbeat tip-box-icon"></i>
+                  <p class="tip-box-title">부모님 체력 Tip</p>
                 </div>
-                <p class="text-xs text-purple-700 leading-snug">
+                <p class="tip-box-text">
                   평지 위주라 도보 여행 수월함. 올드타운 내 예쁜 카페에서 자주
                   쉬어가며 여유롭게 즐기기.
                 </p>
@@ -411,15 +223,5 @@
       </div>
     </div>
     <script src="gallery.js"></script>
-    <script>
-      (function () {
-        function setScale() {
-          var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
-          document.documentElement.style.setProperty("--scale", s);
-        }
-        setScale();
-        window.addEventListener("resize", setScale);
-      })();
-    </script>
   </body>
 </html>
