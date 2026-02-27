@@ -118,16 +118,17 @@ body {
 
 /* 홈 버튼 */
 .btn-home {
-  display: inline-flex;
+  position: fixed;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.9);
   color: #374151;
   font-size: 0.875rem;
   font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+  padding: 0.5rem;
+  border-radius: 16px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   text-decoration: none;
+  margin-bottom: 1rem;
 }
 .btn-home:hover {
   background-color: #fff;
@@ -148,7 +149,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin: 4rem 0;
 }
 .slide-header-top {
   display: flex;
@@ -1088,21 +1089,22 @@ body {
 }
 .index-audience-box {
   background-color: #fff;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   max-width: 32rem;
   margin-bottom: 2rem;
-  border-left: 8px solid #16a34a;
+  text-align: center;
 }
 .index-audience-box .audience-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 0.5rem;
 }
 .index-audience-box .audience-header i { color: #16a34a; font-size: 1.25rem; margin-right: 0.75rem; }
 .index-audience-box .audience-title { font-weight: 700; color: #1f2937; font-size: 1.125rem; margin: 0; }
-.index-audience-box .audience-desc { color: #4b5563; padding-left: 2rem; margin: 0; }
+.index-audience-box .audience-desc { color: #4b5563; margin: 0; }
 .index-considerations {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1177,6 +1179,11 @@ body {
 .theme-link-card .card-thumb--green { background-color: #d1fae5; }
 .theme-link-card .card-thumb--blue { background-color: #dbeafe; }
 .theme-link-card .card-thumb--purple { background-color: #ede9fe; }
+.theme-link-card .card-thumb--gray { background-color: #f3f4f6; }
+.theme-link-card .card-thumb--red { background-color: #fee2e2; }
+.theme-link-card .card-thumb-icon { font-size: 2rem; color: inherit; }
+.theme-link-card .card-thumb--gray .card-thumb-icon { color: #6b7280; }
+.theme-link-card .card-thumb--red .card-thumb-icon { color: #ef4444; }
 .theme-link-card .card-body { flex: 1; padding: 0; }
 .theme-link-card .card-top {
   display: flex;
@@ -1193,6 +1200,8 @@ body {
 .theme-link-card .card-tag--green { color: #16a34a; background-color: #f0fdf4; }
 .theme-link-card .card-tag--blue { color: #2563eb; background-color: #eff6ff; }
 .theme-link-card .card-tag--purple { color: #7c3aed; background-color: #faf5ff; }
+.theme-link-card .card-tag--gray { color: #374151; background-color: #f3f4f6; }
+.theme-link-card .card-tag--red { color: #dc2626; background-color: #fef2f2; }
 .theme-link-card .card-title { font-weight: 700; color: #1f2937; margin: 0 0 0.125rem 0; }
 .theme-link-card .card-desc { font-size: 0.75rem; color: #6b7280; margin: 0; }
 .theme-link-card .card-icon { color: #d1d5db; }
