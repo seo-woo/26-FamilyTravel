@@ -119,10 +119,6 @@
                 window.open('https://triple.guide/articles/1a940e0e-09b1-4f83-be13-2a2143923be3', '_blank');
                 return;
             }
-            if (dest === 'ubud') {
-                window.open('https://www.getyourguide.com/ko-kr/explorer/ubud-ttd32246/first-time-in-ubud/', '_blank');
-                return;
-            }
             if (dest === 'chiangmai') {
                 window.open('https://www.getyourguide.com/ko-kr/explorer/chiang-mai-ttd32247/first-time-in-chiang-mai/', '_blank');
                 return;

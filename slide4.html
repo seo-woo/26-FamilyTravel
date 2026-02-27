@@ -106,16 +106,6 @@
                   <td class="cost-highlight">10~15만</td>
                   <td class="budget-cell-right total-highlight">280~350만</td>
                 </tr>
-                <tr class="budget-table-row-alt">
-                  <td class="budget-cell-label">
-                    <span class="budget-cell-emoji">🇮🇩</span>
-                    발리/우붓
-                  </td>
-                  <td class="cost-highlight">50~90만</td>
-                  <td class="cost-highlight">20~40만</td>
-                  <td class="cost-highlight">10~20만</td>
-                  <td class="budget-cell-right total-highlight total-highlight--danger">350~500만</td>
-                </tr>
               </tbody>
             </table>
             <div class="note-box">
@@ -147,14 +137,6 @@
                 <p class="insight-card-label">대만 &amp; 다낭</p>
                 <p class="insight-card-desc">200만원 대 초반 가능</p>
               </div>
-              <div class="insight-card insight-card--purple">
-                <div class="insight-card-header">
-                  <i class="fas fa-crown insight-icon insight-icon--purple"></i>
-                  <p class="insight-card-title">럭셔리 휴양</p>
-                </div>
-                <p class="insight-card-label">발리/우붓</p>
-                <p class="insight-card-desc">풀빌라/직항 시 예산 상승</p>
-              </div>
             </div>
           </div>
         </div>
@@ -164,18 +146,17 @@
         const budgetChart = new Chart(ctx, {
           type: "bar",
           data: {
-            labels: ["대만", "다낭", "홍콩", "코타", "사파", "발리"],
+            labels: ["대만", "다낭", "홍콩", "코타", "사파"],
             datasets: [
               {
                 label: "최대 예상 비용 (만 원)",
-                data: [250, 280, 300, 350, 400, 500],
+                data: [250, 280, 300, 350, 400],
                 backgroundColor: [
                   "#3B82F6",
                   "#3B82F6",
                   "#6366F1",
                   "#8B5CF6",
                   "#EC4899",
-                  "#EF4444",
                 ],
                 borderRadius: 6,
                 barThickness: 25,
