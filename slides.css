@@ -129,19 +129,13 @@ body {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   margin-bottom: 1rem;
+  z-index: 100;
 }
 .btn-home:hover {
   background-color: #fff;
 }
 .btn-home-icon {
   margin-right: 0.25rem;
-}
-
-.btn-home--floating {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 50;
 }
 
 /* 헤더 */
