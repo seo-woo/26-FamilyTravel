@@ -1,3 +1,5 @@
+html{ overflow: hidden scroll; }
+
 body {
   margin: 0;
   padding: 24px 16px;
