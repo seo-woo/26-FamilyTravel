@@ -1,173 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>바다 테마 여행지 비교</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Jua&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link href="gallery.css" rel="stylesheet" />
-    <link href="responsive.css" rel="stylesheet" />
-    <link href="slides.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="slide-viewport">
-      <div class="slide-container">
-        <a href="index.html" class="btn-home">
-          <i class="fas fa-home btn-home-icon"></i>
-          홈으로
-        </a>
-        <div class="slide-header">
-          <div>
-            <h1 class="slide-title">바다(Ocean) 테마 비교</h1>
-          </div>
-          <div class="checkpoint-box checkpoint-box--blue">
-            <div class="checkpoint-header">
-              <i class="fas fa-info-circle checkpoint-icon checkpoint-icon--blue"></i>
-              <p class="checkpoint-title">핵심 비교</p>
-            </div>
-            <p class="checkpoint-desc">
-              이동 편의성과 휴양 vs 액티비티 목적에 따른 선택
-            </p>
-          </div>
-        </div>
-        <div class="cards-grid cards-grid--2">
-          <div class="destination-card" data-destination="manado">
-            <div class="image-container">
-              <img
-                alt="Manado"
-                class="card-img"
-                src="https://img.segye.com/content/image/2025/11/03/20251103518469.jpg"
-              />
-              <div class="image-overlay">
-                <h2 class="overlay-title overlay-title--lg">마나도 (Manado)</h2>
-                <p class="overlay-subtitle overlay-subtitle--sm">🇮🇩 인도네시아 (다이빙 성지)</p>
-              </div>
-            </div>
-            <div class="card-body card-body--lg">
-              <div class="card-section info-grid-inner">
-                <div class="info-row">
-                  <div class="info-icon info-icon--red">
-                    <i class="fas fa-plane-slash"></i>
-                  </div>
-                  <div>
-                    <p class="info-label">이동 (난이도: 하 ~ 최상)</p>
-                    <p class="info-text">직항 없음, 1~2회 경유 / 여행사 끼면 직항도 가능</p>
-                    <p class="info-text--warning">⚠️ 현재는 직항이 3월까지 운행(여행사 필수), 이후 일정 확인 필요.</p>
-                  </div>
-                </div>
-                <div class="info-row">
-                  <div class="info-icon info-icon--orange">
-                    <i class="fas fa-temperature-high"></i>
-                  </div>
-                  <div>
-                    <p class="info-label">10월 기후</p>
-                    <p class="info-text">무덥고 습한 열대 기후</p>
-                    <p class="info-text--blue">수중 시야는 좋음</p>
-                  </div>
-                </div>
-              </div>
-              <div class="pros-cons-box">
-                <div class="pros-cons-item">
-                  <p class="pros-cons-label-row">
-                    <i class="fas fa-thumbs-up pros-icon"></i>
-                    장점
-                  </p>
-                  <p class="pros-cons-text-pl">세계적인 다이빙/스노클링 포인트, 때 묻지 않은 자연, 조용한 휴식 가능.</p>
-                </div>
-                <div class="pros-cons-item">
-                  <p class="pros-cons-label-row">
-                    <i class="fas fa-thumbs-down cons-icon"></i>
-                    단점
-                  </p>
-                  <p class="pros-cons-text-pl">복잡하고 긴 이동 경로. 한국어 가이드나 편의시설 부족.</p>
-                </div>
-              </div>
-              <div class="tip-box tip-box--red">
-                <div class="tip-box-icon-wrap"><i class="fas fa-heartbeat tip-box-icon"></i></div>
-                <div>
-                  <p class="tip-box-title">Point</p>
-                  <p class="tip-box-text">
-                    1. 거북이 많은 곳. 아침에 바다 가까이에서 거북이 보기 좋음.<br>
-                    2. 3월 이후에 확인해봐야 함.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="destination-card destination-card--has-badge" data-destination="kotakinabalu">
-            <div class="image-container">
-              <img
-                alt="Kota Kinabalu"
-                class="card-img"
-                src="https://mblogthumb-phinf.pstatic.net/MjAyNDAxMDlfMTkz/MDAxNzA0NzYxMTY4MjA2.WSdx-wKH1_5zIncmMzoR5Kobh69UZyyAZ4i_4VnFBU0g.3T0WcGGN7NmpUz0serR4j64FCiUamwrbznXqdwSkPL8g.JPEG.kkdaykr/shutterstock_1600006843.jpg?type=w800"
-              />
-              <div class="image-overlay">
-                <h2 class="overlay-title overlay-title--lg">코타키나발루</h2>
-                <p class="overlay-subtitle overlay-subtitle--sm">🇲🇾 말레이시아 (세계 3대 석양)</p>
-              </div>
-            </div>
-            <div class="card-body card-body--lg">
-              <div class="card-section info-grid-inner">
-                <div class="info-row">
-                  <div class="info-icon info-icon--blue">
-                    <i class="fas fa-plane-arrival"></i>
-                  </div>
-                  <div>
-                    <p class="info-label">이동 (난이도: 하)</p>
-                    <p class="info-text">인천 직항 약 5~6시간</p>
-                    <p class="info-text--highlight">👍 부모님께 적합</p>
-                  </div>
-                </div>
-                <div class="info-row">
-                  <div class="info-icon info-icon--gray">
-                    <i class="fas fa-cloud-showers-heavy"></i>
-                  </div>
-                  <div>
-                    <p class="info-label">10월 기후</p>
-                    <p class="info-text">우기 시즌 (스콜성 비)</p>
-                    <p class="info-text">비 온 뒤 석양은 더 아름다움</p>
-                  </div>
-                </div>
-              </div>
-              <div class="pros-cons-box">
-                <div class="pros-cons-item">
-                  <p class="pros-cons-label-row">
-                    <i class="fas fa-thumbs-up pros-icon"></i>
-                    장점
-                  </p>
-                  <p class="pros-cons-text-pl">편리한 직항, 리조트 시설 우수, 반딧불 투어 등 이색 체험 가능.</p>
-                </div>
-                <div class="pros-cons-item">
-                  <p class="pros-cons-label-row">
-                    <i class="fas fa-thumbs-down cons-icon"></i>
-                    단점
-                  </p>
-                  <p class="pros-cons-text-pl">비가 올 경우 야외 활동 제한. 바다색이 몰디브급은 아님.</p>
-                </div>
-              </div>
-              <div class="tip-box tip-box--blue">
-                <div class="tip-box-icon-wrap"><i class="fas fa-heartbeat tip-box-icon"></i></div>
-                <div>
-                  <p class="tip-box-title">Point</p>
-                  <p class="tip-box-text">
-                    1. 리조트 내 수영장과 휴식을 메인으로 하고, 선셋크루즈 등 낭만 즐기기 좋음.<br>
-                    2. 말레이시아 코타키나발루 리조트는 한국인 주변 직원이 많아 한국어 가이드 부족 없음.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="gallery.js"></script>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>치앙마이 여행 가이드</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #1a1a1a;
+        }
+        .slide-container {
+            width: min(1280px, 100%);
+            min-height: 100vh;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            background-color: #fbfbf8; /* Warm off-white paper tone */
+            margin: 0 auto;
+        }
+        .font-serif {
+            font-family: 'Noto Serif KR', serif;
+        }
+        .font-sans {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .left-panel {
+            flex: 0 0 42%;
+            position: relative;
+            height: 100%;
+        }
+        .right-panel {
+            flex: 1;
+            padding: 3rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .accent-text {
+            color: #064e3b; /* Emerald 900 */
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .list-dot::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #10b981; /* Emerald 500 */
+            margin-right: 8px;
+            margin-bottom: 2px;
+        }
+        /* Gradient replacement for export safety */
+        .overlay-gradient {
+            background-color: rgba(0,0,0,0.3);
+            box-shadow: inset 0 -150px 100px -50px rgba(0,0,0,0.7);
+        }
+        @media (max-width: 768px) {
+            .slide-container {
+                flex-direction: column;
+            }
+            .left-panel {
+                flex: none;
+                height: 38vh;
+                min-height: 220px;
+            }
+            .right-panel {
+                padding: 1.25rem 1rem 1.5rem;
+            }
+            .right-panel h1 {
+                font-size: 2.1rem;
+                line-height: 1.2;
+            }
+            .right-panel .font-serif.text-xl {
+                font-size: 1rem;
+            }
+            .right-panel .grid.grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 > div:first-child {
+                border-right: 0;
+                padding-right: 0;
+                border-bottom: 1px solid #f3f4f6;
+                padding-bottom: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Left Panel: Immersive Image -->
+<div class="left-panel">
+<img alt="Chiang Mai Doi Inthanon" class="absolute inset-0 w-full h-full object-cover" src="https://page.gensparksite.com/slides_images/bcc2e58cee15941a59202fa48f15185a.webp"/>
+<div class="absolute inset-0 overlay-gradient"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<p class="font-sans text-xs tracking-widest uppercase opacity-80 mb-1">Thailand</p>
+<p class="font-serif text-3xl font-light">Chiang Mai</p>
+</div>
+</div>
+<!-- Right Panel: Detailed Content -->
+<div class="right-panel">
+<!-- Header -->
+<div class="mb-6 border-b border-gray-200 pb-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-bold uppercase tracking-wider rounded">Mountain &amp; Jungle</span>
+<span class="text-gray-400 text-xs">Theme 02</span>
+</div>
+<h1 class="font-serif text-5xl font-bold text-gray-900 mb-2">치앙마이</h1>
+<p class="font-serif text-xl text-gray-600 italic">"숲속의 도심 휴양, 세련된 카페 감성과 안전한 가족 여행"</p>
+</div>
+<!-- Pros & Cons Grid -->
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div>
+<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
+<i class="fas fa-plus-circle text-green-600 mr-2"></i> 장점 (Pros)
+                    </h3>
+<div class="space-y-2">
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>물가가 저렴하고 치안이 매우 좋아 안정적</span>
+</p>
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>세련된 카페와 예술적 분위기의 도심 힐링</span>
+</p>
+</div>
+</div>
+<div>
+<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
+<i class="fas fa-minus-circle text-red-400 mr-2"></i> 단점 (Cons)
+                    </h3>
+<div class="space-y-2">
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>바다가 없어 물놀이 비중이 다소 낮음</span>
+</p>
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>2~4월은 화전(Burning Season) 미세먼지 주의</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Must Visit & Resort Recommendation -->
+<div class="bg-white p-5 rounded-lg border border-gray-100 card-shadow mb-6 flex gap-6">
+<div class="flex-1 border-r border-gray-100 pr-6">
+<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+<i class="fas fa-map-marker-alt text-green-600 mr-2"></i>Must Visit
+                    </h3>
+<div class="space-y-2">
+<p class="font-sans text-sm text-gray-600 flex items-center">
+<i class="fas fa-mountain text-gray-400 text-xs w-5"></i>도이 인타논 국립공원
+                        </p>
+<p class="font-sans text-sm text-gray-600 flex items-center">
+<i class="fas fa-gopuram text-gray-400 text-xs w-5"></i>도이수텝 사원 (황금 사원)
+                        </p>
+<p class="font-sans text-sm text-gray-600 flex items-center">
+<i class="fas fa-coffee text-gray-400 text-xs w-5"></i>님만해민 카페 거리
+                        </p>
+</div>
+</div>
+<div class="flex-[1.5]">
+<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+<i class="fas fa-hotel text-green-600 mr-2"></i>Best Resorts
+                    </h3>
+<div class="space-y-3">
+<div>
+<p class="font-sans text-sm font-bold text-gray-800">판비만 치앙마이 스파 리조트</p>
+<p class="font-sans text-xs text-gray-500 mt-0.5">산꼭대기 파노라마 뷰, 대가족 풀빌라 보유</p>
+</div>
+<div>
+<p class="font-sans text-sm font-bold text-gray-800">베란다 하이 리조트</p>
+<p class="font-sans text-xs text-gray-500 mt-0.5">현대적인 디자인과 산세가 어우러진 인피니티 풀</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Family Point -->
+<div class="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-md">
+<div class="flex items-start">
+<div class="flex-shrink-0">
+<i class="fas fa-home text-green-600 mt-1"></i>
+</div>
+<div class="ml-3">
+<h4 class="text-sm font-bold text-green-800 font-serif">Family Point: 님만해민 독채 숙소</h4>
+<p class="text-sm text-green-700 mt-1 font-sans">
+                            에어비앤비 등을 통해 님만해민의 독채를 빌리면 5인 가족이 '치앙마이 한 달 살기' 하듯 내 집처럼 편안하게 머물 수 있습니다.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>

@@ -1,197 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>예산 비교</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=Jua&amp;family=Roboto:wght@400;500;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="responsive.css" rel="stylesheet" />
-    <link href="slides.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="slide-viewport">
-      <div class="slide-container">
-        <a href="index.html" class="btn-home">
-          <i class="fas fa-home btn-home-icon"></i>
-          홈으로
-        </a>
-        <div class="slide-header">
-          <div>
-            <div class="slide-header-top">
-              <span class="badge-theme badge-theme--gray">Budget Plan</span>
-              <p class="slide-subtitle">5인 가족 기준 (5~7일)</p>
-            </div>
-            <h1 class="slide-title">여행지별 예상 예산 비교</h1>
-          </div>
-          <div class="checkpoint-box checkpoint-box--green">
-            <div class="checkpoint-header">
-              <i class="fas fa-coins checkpoint-icon checkpoint-icon--green"></i>
-              <p class="checkpoint-title">총 예산 요약</p>
-            </div>
-            <p class="checkpoint-desc">
-              항공+숙박+현지비 포함 (쇼핑 제외)
-            </p>
-          </div>
-        </div>
-        <div class="budget-layout">
-          <div class="budget-table-wrap">
-            <table class="budget-table">
-              <thead>
-                <tr>
-                  <th>여행지</th>
-                  <th>항공(1인)</th>
-                  <th>숙박(1박)</th>
-                  <th>현지비(1인)</th>
-                  <th class="budget-cell-right">총 예상(5인)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="budget-cell-label">
-                    <span class="budget-cell-emoji">🇹🇼</span>
-                    대만
-                  </td>
-                  <td class="cost-highlight">20~40만</td>
-                  <td class="cost-highlight">8~15만</td>
-                  <td class="cost-highlight">~10만</td>
-                  <td class="budget-cell-right total-highlight">180~250만</td>
-                </tr>
-                <tr>
-                  <td class="budget-cell-label">
-                    <span class="budget-cell-emoji">🇻🇳</span>
-                    다낭
-                  </td>
-                  <td class="cost-highlight">30~60만</td>
-                  <td class="cost-highlight">8~20만</td>
-                  <td class="cost-highlight">8~12만</td>
-                  <td class="budget-cell-right total-highlight">200~280만</td>
-                </tr>
-                <tr>
-                  <td class="budget-cell-label">
-                    <span class="budget-cell-emoji">🇭🇰</span>
-                    홍콩
-                  </td>
-                  <td class="cost-highlight">30~50만</td>
-                  <td class="cost-highlight">10~20만</td>
-                  <td class="cost-highlight">12~15만</td>
-                  <td class="budget-cell-right total-highlight">220~300만</td>
-                </tr>
-                <tr>
-                  <td class="budget-cell-label">
-                    <span class="budget-cell-emoji">🇻🇳</span>
-                    사파
-                    <span class="budget-cell-note">(이동포함)</span>
-                  </td>
-                  <td class="cost-highlight">40~80만</td>
-                  <td class="cost-highlight">10~20만</td>
-                  <td class="cost-highlight">6~10만</td>
-                  <td class="budget-cell-right total-highlight">250~400만</td>
-                </tr>
-                <tr>
-                  <td class="budget-cell-label">
-                    <span class="budget-cell-emoji">🇲🇾</span>
-                    코타
-                  </td>
-                  <td class="cost-highlight">40~70만</td>
-                  <td class="cost-highlight">15~25만</td>
-                  <td class="cost-highlight">10~15만</td>
-                  <td class="budget-cell-right total-highlight">280~350만</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="note-box">
-              <p class="note-box-title">
-                <i class="fas fa-exclamation-triangle note-box-icon"></i>
-                예산 책정 참고사항
-              </p>
-              <ul class="note-box-list">
-                <li><p>위 금액은 <strong>10월 비수기/평수기 기준</strong>이며, 예약 시점에 따라 항공권 가격 변동이 큽니다.</p></li>
-                <li><p>숙박비는 5인 가족 기준(객실 2개 또는 패밀리 스위트 1개) 평균가입니다.</p></li>
-                <li><p>현지비는 식비, 교통비, 기본 입장료를 포함하며 쇼핑 및 고가 투어는 제외되었습니다.</p></li>
-              </ul>
-            </div>
-          </div>
-          <div class="budget-chart-col">
-            <div class="chart-card">
-              <h3 class="chart-card-title">총 예상 비용 비교 (최대치 기준)</h3>
-              <div class="chart-card-canvas-wrap">
-                <canvas id="budgetChart"></canvas>
-              </div>
-              <p class="chart-card-unit">단위: 만 원 (KRW)</p>
-            </div>
-            <div class="insight-grid">
-              <div class="insight-card insight-card--blue">
-                <div class="insight-card-header">
-                  <i class="fas fa-piggy-bank insight-icon insight-icon--blue"></i>
-                  <p class="insight-card-title">가성비 추천</p>
-                </div>
-                <p class="insight-card-label">대만 &amp; 다낭</p>
-                <p class="insight-card-desc">200만원 대 초반 가능</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <script>
-        const ctx = document.getElementById("budgetChart").getContext("2d");
-        const budgetChart = new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: ["대만", "다낭", "홍콩", "코타", "사파"],
-            datasets: [
-              {
-                label: "최대 예상 비용 (만 원)",
-                data: [250, 280, 300, 350, 400],
-                backgroundColor: [
-                  "#3B82F6",
-                  "#3B82F6",
-                  "#6366F1",
-                  "#8B5CF6",
-                  "#EC4899",
-                ],
-                borderRadius: 6,
-                barThickness: 25,
-              },
-            ],
-          },
-          options: {
-            indexAxis: "y",
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  label: function (context) {
-                    return context.raw + " 만 원";
-                  },
-                },
-              },
-            },
-            scales: {
-              x: {
-                beginAtZero: true,
-                grid: { display: false },
-                ticks: { font: { family: "'Noto Sans KR', sans-serif", size: 10 } },
-              },
-              y: {
-                grid: { display: false },
-                ticks: { font: { family: "'Noto Sans KR', sans-serif", weight: "bold", size: 12 } },
-              },
-            },
-            layout: { padding: { left: 10, right: 20 } },
-          },
-        });
-      </script>
-    </div>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>마나도 여행 가이드</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #1a1a1a;
+        }
+        .slide-container {
+            width: min(1280px, 100%);
+            min-height: 100vh;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            background-color: #fbfbf8; /* Warm off-white paper tone */
+            margin: 0 auto;
+        }
+        .font-serif {
+            font-family: 'Noto Serif KR', serif;
+        }
+        .font-sans {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .left-panel {
+            flex: 0 0 42%;
+            position: relative;
+            height: 100%;
+        }
+        .right-panel {
+            flex: 1;
+            padding: 3rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .accent-text {
+            color: #0e7490; /* Cyan 700 */
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .list-dot::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #06b6d4; /* Cyan 500 */
+            margin-right: 8px;
+            margin-bottom: 2px;
+        }
+        @media (max-width: 768px) {
+            .slide-container {
+                flex-direction: column;
+            }
+            .left-panel {
+                flex: none;
+                height: 38vh;
+                min-height: 220px;
+            }
+            .right-panel {
+                padding: 1.25rem 1rem 1.5rem;
+            }
+            .right-panel h1 {
+                font-size: 2.1rem;
+                line-height: 1.2;
+            }
+            .right-panel .font-serif.text-xl {
+                font-size: 1rem;
+            }
+            .right-panel .grid.grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 > div:first-child {
+                border-right: 0;
+                padding-right: 0;
+                border-bottom: 1px solid #f3f4f6;
+                padding-bottom: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Left Panel: Immersive Image -->
+<div class="left-panel">
+<img alt="Bunaken Snorkeling Manado" class="absolute inset-0 w-full h-full object-cover" src="https://page.gensparksite.com/slides_images/00a517d7371b18905fdddf6a793fa54d.webp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<p class="font-sans text-xs tracking-widest uppercase opacity-80 mb-1">Indonesia</p>
+<p class="font-serif text-3xl font-light">Manado, Sulawesi</p>
+</div>
+</div>
+<!-- Right Panel: Detailed Content -->
+<div class="right-panel">
+<!-- Header -->
+<div class="mb-6 border-b border-gray-200 pb-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-bold uppercase tracking-wider rounded">Ocean &amp; Beach</span>
+<span class="text-gray-400 text-xs">Theme 02</span>
+</div>
+<h1 class="font-serif text-5xl font-bold text-gray-900 mb-2">마나도 (Manado)</h1>
+<p class="font-serif text-xl text-gray-600 italic">"2026 직항으로 가까워진, 세계 최정상급 수중 생태계의 보고"</p>
+</div>
+<!-- Pros & Cons Grid -->
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div>
+<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
+<i class="fas fa-plus-circle text-cyan-600 mr-2"></i> 장점 (Pros)
+                    </h3>
+<div class="space-y-2">
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>2026년 직항 노선(이스타항공 등) 취항으로 접근성 대폭 향상</span>
+</p>
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>사이판급 투명한 바다와 세계 최고 수준의 수중 환경</span>
+</p>
+</div>
+</div>
+<div>
+<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
+<i class="fas fa-minus-circle text-red-400 mr-2"></i> 단점 (Cons)
+                    </h3>
+<div class="space-y-2">
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>한국어 인프라가 다소 부족할 수 있음 (가이드 동행 권장)</span>
+</p>
+<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+<span>휴양 외 쇼핑이나 도심 관광 콘텐츠는 제한적</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Must Visit & Resort Recommendation -->
+<div class="bg-white p-5 rounded-lg border border-gray-100 card-shadow mb-6 flex gap-6">
+<div class="flex-1 border-r border-gray-100 pr-6">
+<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+<i class="fas fa-map-marker-alt text-cyan-600 mr-2"></i>Must Visit
+                    </h3>
+<div class="space-y-2">
+<p class="font-sans text-sm text-gray-600 flex items-center">
+<i class="fas fa-water text-gray-400 text-xs w-5"></i>부나켄 국립공원 (스노클링)
+                        </p>
+<p class="font-sans text-sm text-gray-600 flex items-center">
+<i class="fas fa-store text-gray-400 text-xs w-5"></i>토모혼 전통시장
+                        </p>
+<p class="font-sans text-sm text-gray-600 flex items-center">
+<i class="fas fa-cross text-gray-400 text-xs w-5"></i>초대형 예수상 (세계 2위)
+                        </p>
+</div>
+</div>
+<div class="flex-[1.5]">
+<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+<i class="fas fa-hotel text-cyan-600 mr-2"></i>Best Resorts
+                    </h3>
+<div class="space-y-3">
+<div>
+<p class="font-sans text-sm font-bold text-gray-800">파라다이스 골프 &amp; 리조트</p>
+<p class="font-sans text-xs text-gray-500 mt-0.5">18홀 골프장과 전용 해변 보유, 대단지라 가족 활동에 최적</p>
+</div>
+<div>
+<p class="font-sans text-sm font-bold text-gray-800">포 포인츠 바이 쉐라톤 마나도</p>
+<p class="font-sans text-xs text-gray-500 mt-0.5">시내와 연결되어 쇼핑몰 및 맛집 탐방에 유리한 위치</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Family Point -->
+<div class="bg-cyan-50 border-l-4 border-cyan-600 p-4 rounded-r-md">
+<div class="flex items-start">
+<div class="flex-shrink-0">
+<i class="fas fa-lightbulb text-cyan-600 mt-1"></i>
+</div>
+<div class="ml-3">
+<h4 class="text-sm font-bold text-cyan-800 font-serif">Family Point: 부나켄 호핑 투어</h4>
+<p class="text-sm text-cyan-700 mt-1 font-sans">
+                            수족관 속을 걷는 듯한 투명한 바다에서의 스노클링은 아이들과 부모님 모두에게 평생 잊지 못할 환상적인 경험이 됩니다.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>
