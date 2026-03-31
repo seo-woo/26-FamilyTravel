@@ -1,222 +1,301 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="ko">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>5인 가족 여행지 가이드</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-            background-color: #1a1a1a;
-        }
-        .slide-container {
-            width: min(1280px, 100%);
-            min-height: 100vh;
-            height: auto;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-        }
-        .font-serif {
-            font-family: 'Noto Serif KR', serif;
-        }
-        .font-sans {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-        .glass-panel {
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(4px);
-        }
-        /* Custom text shadow for better readability on images */
-        .text-shadow-sm {
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-        .text-shadow-lg {
-            text-shadow: 0 4px 8px rgba(0,0,0,0.6);
-        }
-        .destination-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 0.75rem;
-        }
-        .destination-item {
-            min-height: 4.6rem;
-            padding: 0.65rem 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 0.5rem;
-            background: rgba(255, 255, 255, 0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .destination-link {
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-        }
-        .destination-link:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.16);
-            border-color: rgba(255, 255, 255, 0.45);
-        }
-        .destination-link:focus-visible {
-            outline: 2px solid rgba(255, 255, 255, 0.9);
-            outline-offset: 2px;
-        }
-        .destination-country {
-            font-size: 0.65rem;
-            letter-spacing: 0.18em;
-            color: rgba(255, 255, 255, 0.72);
-        }
-        .destination-city {
-            margin-top: 0.25rem;
-            font-size: 1.1rem;
-            line-height: 1.25;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-        }
-        @media (max-width: 768px) {
-            .slide-container .absolute.inset-6 {
-                inset: 0.75rem;
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>5인 가족 여행지 가이드</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                background-color: #1a1a1a;
             }
-            .slide-container .relative.z-20.flex-1 {
-                justify-content: flex-start;
-                padding: 4rem 1rem 1.5rem;
-            }
-            .slide-container .font-serif.text-7xl {
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-            .slide-container .mb-10.flex.items-center.justify-center.space-x-4 {
+            .slide-container {
+                width: min(1280px, 100%);
+                min-height: 100vh;
+                height: auto;
+                position: relative;
+                overflow: hidden;
+                display: flex;
                 flex-direction: column;
-                gap: 0.75rem;
-                margin-bottom: 1.5rem;
+                margin: 0 auto;
             }
-            .slide-container .mb-10 .h-px {
-                width: 5rem;
+            .font-serif {
+                font-family: "Noto Serif KR", serif;
             }
-            .slide-container .font-serif.text-2xl.italic {
-                font-size: 1.1rem;
-                text-align: center;
+            .font-sans {
+                font-family: "Noto Sans KR", sans-serif;
             }
             .glass-panel {
-                width: 100%;
-                max-width: 24rem;
-                padding: 1rem;
+                background-color: rgba(0, 0, 0, 0.4);
+                backdrop-filter: blur(4px);
             }
-            .glass-panel > div {
-                width: 100%;
+            /* Custom text shadow for better readability on images */
+            .text-shadow-sm {
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             }
             .destination-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 0.6rem;
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 0.75rem;
             }
             .destination-item {
-                min-height: 4.1rem;
-                padding: 0.55rem 0.5rem;
+                min-height: 4.6rem;
+                padding: 0.65rem 0.75rem;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                border-radius: 0.5rem;
+                background: rgba(255, 255, 255, 0.08);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            .destination-link {
+                text-decoration: none;
+                color: inherit;
+                transition:
+                    transform 0.2s ease,
+                    background-color 0.2s ease,
+                    border-color 0.2s ease;
+            }
+            .destination-link:hover {
+                transform: translateY(-2px);
+                background: rgba(255, 255, 255, 0.16);
+                border-color: rgba(255, 255, 255, 0.45);
+            }
+            .destination-link:focus-visible {
+                outline: 2px solid rgba(255, 255, 255, 0.9);
+                outline-offset: 2px;
+            }
+            .destination-country {
+                font-size: 0.65rem;
+                letter-spacing: 0.18em;
+                color: rgba(255, 255, 255, 0.72);
             }
             .destination-city {
-                font-size: 1rem;
+                margin-top: 0.25rem;
+                font-size: 1.1rem;
+                line-height: 1.25;
+                font-weight: 700;
+                letter-spacing: 0.02em;
             }
-            .slide-container .absolute.bottom-12.w-full.text-center {
-                position: static;
-                margin-top: 1rem;
+            @media (max-width: 768px) {
+                .slide-container .absolute.inset-6 {
+                    inset: 0.75rem;
+                }
+                .slide-container .relative.z-20.flex-1 {
+                    justify-content: flex-start;
+                    padding: 4rem 1rem 1.5rem;
+                }
+                .slide-container .font-serif.text-7xl {
+                    font-size: 2.5rem;
+                    line-height: 1.2;
+                }
+                .slide-container .mb-10.flex.items-center.justify-center.space-x-4 {
+                    flex-direction: column;
+                    gap: 0.75rem;
+                    margin-bottom: 1.5rem;
+                }
+                .slide-container .mb-10 .h-px {
+                    width: 5rem;
+                }
+                .slide-container .font-serif.text-2xl.italic {
+                    font-size: 1.1rem;
+                    text-align: center;
+                }
+                .glass-panel {
+                    width: 100%;
+                    max-width: 24rem;
+                    padding: 1rem;
+                }
+                .glass-panel > div {
+                    width: 100%;
+                }
+                .destination-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 0.6rem;
+                }
+                .destination-item {
+                    min-height: 4.1rem;
+                    padding: 0.55rem 0.5rem;
+                }
+                .destination-city {
+                    font-size: 1rem;
+                }
+                .slide-container .absolute.bottom-12.w-full.text-center {
+                    position: static;
+                    margin-top: 1rem;
+                }
+                .slide-container .absolute.top-12.right-12.z-20 {
+                    top: 0.9rem;
+                    right: 0.9rem;
+                }
+                .slide-container .absolute.top-12.right-12 .w-20.h-20 {
+                    width: 3.5rem;
+                    height: 3.5rem;
+                }
+                .slide-container .absolute.top-12.right-12 .font-serif.text-2xl {
+                    font-size: 1rem;
+                }
             }
-            .slide-container .absolute.top-12.right-12.z-20 {
-                top: 0.9rem;
-                right: 0.9rem;
-            }
-            .slide-container .absolute.top-12.right-12 .w-20.h-20 {
-                width: 3.5rem;
-                height: 3.5rem;
-            }
-            .slide-container .absolute.top-12.right-12 .font-serif.text-2xl {
-                font-size: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-<div class="slide-container bg-gray-900">
-<!-- Background Image -->
-<div class="absolute inset-0 z-0">
-<img alt="Luxury Tropical Resort" class="w-full h-full object-cover" src="https://page.gensparksite.com/slides_images/976998df990163fa7ea9c92be22ab733.jpg"/>
-</div>
-<!-- Dark Overlay for Readability -->
-<div class="absolute inset-0 bg-black bg-opacity-30 z-0"></div>
-<!-- Decorative Border Frame -->
-<div class="absolute inset-6 border border-white border-opacity-40 z-10 pointer-events-none"></div>
-<!-- Main Content -->
-<div class="relative z-20 flex-1 flex flex-col justify-center items-center text-center text-white px-16">
-<!-- Top Tagline -->
-<div class="mb-6 animate-fade-in-up">
-<p class="font-sans text-sm tracking-[0.4em] uppercase text-gray-200 border-b border-gray-400 pb-2 inline-block">
-                    Family Vacation
-                </p>
-</div>
-<!-- Main Title -->
-<div class="mb-4">
-<p class="font-serif text-7xl font-bold leading-tight tracking-tight text-shadow-lg">
-                    5인 가족<br/>여행지 가이드
-                </p>
-</div>
-<!-- Subtitle / Theme -->
-<div class="mb-10 flex items-center justify-center space-x-4">
-<div class="h-px w-12 bg-white bg-opacity-60"></div>
-<p class="font-serif text-2xl italic text-gray-100 font-light text-shadow-sm">
-                    Mountain &amp; Jungle <span class="not-italic text-sm mx-2 opacity-70">vs</span> Ocean &amp; Beach
-                </p>
-<div class="h-px w-12 bg-white bg-opacity-60"></div>
-</div>
-<!-- Destination List -->
-<div class="glass-panel px-10 py-5 rounded-sm">
-<div class="destination-grid font-sans font-medium uppercase">
-<a class="destination-item destination-link" href="slide1.html" aria-label="발리 페이지로 이동">
-<span class="destination-country">인도네시아</span>
-<span class="destination-city">발리</span>
-</a>
-<a class="destination-item destination-link" href="slide2.html" aria-label="치앙마이 페이지로 이동">
-<span class="destination-country">태국</span>
-<span class="destination-city">치앙마이</span>
-</a>
-<a class="destination-item destination-link" href="slide3.html" aria-label="코타키나발루 페이지로 이동">
-<span class="destination-country">말레이시아</span>
-<span class="destination-city">코타키나발루</span>
-</a>
-<!-- <a class="destination-item destination-link" href="slide4.html" aria-label="마나도 페이지로 이동">
-<span class="destination-country">인도네시아</span>
-<span class="destination-city">마나도</span>
-</a> -->
-<a class="destination-item destination-link" href="slide6.html" aria-label="카자흐스탄 페이지로 이동">
-<span class="destination-country">카자흐스탄</span>
-<span class="destination-city">알마티</span>
-</a>
-</div>
-</div>
-<!-- Footer Note -->
-<div class="absolute bottom-12 w-full text-center">
-<p class="font-sans text-xs text-white text-opacity-80 tracking-wide">
-                    2026년 가족 여행을 위한 완벽한 큐레이션
-                </p>
-</div>
-</div>
-<!-- Issue Number / Badge -->
-<div class="absolute top-12 right-12 z-20">
-<div class="w-20 h-20 rounded-full border border-white border-opacity-50 flex flex-col justify-center items-center bg-black bg-opacity-20 backdrop-filter backdrop-blur-sm">
-<p class="font-sans text-xs font-bold">VOL.</p>
-<p class="font-serif text-2xl">01</p>
-</div>
-</div>
-</div>
-</body>
+        </style>
+    </head>
+    <body>
+        <div class="slide-container bg-gray-900">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img
+                    alt="Luxury Tropical Resort"
+                    class="w-full h-full object-cover"
+                    src="https://page.gensparksite.com/slides_images/976998df990163fa7ea9c92be22ab733.jpg"
+                />
+            </div>
+            <!-- Dark Overlay for Readability -->
+            <div class="absolute inset-0 bg-black bg-opacity-30 z-0"></div>
+            <!-- Decorative Border Frame -->
+            <div class="absolute inset-6 border border-white border-opacity-40 z-10 pointer-events-none"></div>
+            <!-- Main Content -->
+            <div class="relative z-20 flex-1 flex flex-col justify-center items-center text-center text-white px-16">
+                <!-- Top Tagline -->
+                <div class="mb-6 animate-fade-in-up">
+                    <p
+                        class="font-sans text-sm tracking-[0.4em] uppercase text-gray-200 border-b border-gray-400 pb-2 inline-block"
+                    >
+                        Family Vacation
+                    </p>
+                </div>
+                <!-- Main Title -->
+                <div class="mb-4">
+                    <p class="font-serif text-7xl font-bold leading-tight tracking-tight text-shadow-lg">
+                        5인 가족<br />여행지 가이드
+                    </p>
+                </div>
+                <!-- Subtitle / Theme -->
+                <div class="mb-10 flex items-center justify-center space-x-4">
+                    <div class="h-px w-12 bg-white bg-opacity-60"></div>
+                    <p class="font-serif text-2xl italic text-gray-100 font-light text-shadow-sm">
+                        Mountain &amp; Jungle <span class="not-italic text-xs mx-2 opacity-50">·</span> Ocean &amp;
+                        Beach <span class="not-italic text-xs mx-2 opacity-50">·</span> Steppe
+                    </p>
+                    <div class="h-px w-12 bg-white bg-opacity-60"></div>
+                </div>
+                <!-- Destination List -->
+                <div class="glass-panel px-10 py-5 rounded-sm">
+                    <div class="destination-grid font-sans font-medium uppercase">
+                        <a
+                            class="destination-item destination-link"
+                            href="slide1.html"
+                            aria-label="발리 페이지로 이동"
+                            style="border-top: 2px solid #10b981"
+                        >
+                            <span class="destination-country">인도네시아</span>
+                            <span
+                                style="
+                                    font-size: 0.5rem;
+                                    color: #6ee7b7;
+                                    letter-spacing: 0.12em;
+                                    text-transform: uppercase;
+                                    margin: 0.15rem 0 -0.05rem;
+                                    line-height: 1.2;
+                                "
+                                >Mountain · Jungle</span
+                            >
+                            <span class="destination-city">발리</span>
+                        </a>
+                        <a
+                            class="destination-item destination-link"
+                            href="slide2.html"
+                            aria-label="치앙마이 페이지로 이동"
+                            style="border-top: 2px solid #4ade80"
+                        >
+                            <span class="destination-country">태국</span>
+                            <span
+                                style="
+                                    font-size: 0.5rem;
+                                    color: #86efac;
+                                    letter-spacing: 0.12em;
+                                    text-transform: uppercase;
+                                    margin: 0.15rem 0 -0.05rem;
+                                    line-height: 1.2;
+                                "
+                                >Mountain · Culture</span
+                            >
+                            <span class="destination-city">치앙마이</span>
+                        </a>
+                        <a
+                            class="destination-item destination-link"
+                            href="slide3.html"
+                            aria-label="코타키나발루 페이지로 이동"
+                            style="border-top: 2px solid #60a5fa"
+                        >
+                            <span class="destination-country">말레이시아</span>
+                            <span
+                                style="
+                                    font-size: 0.5rem;
+                                    color: #93c5fd;
+                                    letter-spacing: 0.12em;
+                                    text-transform: uppercase;
+                                    margin: 0.15rem 0 -0.05rem;
+                                    line-height: 1.2;
+                                "
+                                >Ocean · Nature</span
+                            >
+                            <span class="destination-city">코타키나발루</span>
+                        </a>
+                        <a
+                            class="destination-item destination-link"
+                            href="slide6.html"
+                            aria-label="카자흐스탄 페이지로 이동"
+                            style="border-top: 2px solid #fbbf24"
+                        >
+                            <span class="destination-country">카자흐스탄</span>
+                            <span
+                                style="
+                                    font-size: 0.5rem;
+                                    color: #fcd34d;
+                                    letter-spacing: 0.12em;
+                                    text-transform: uppercase;
+                                    margin: 0.15rem 0 -0.05rem;
+                                    line-height: 1.2;
+                                "
+                                >Mountain · Steppe</span
+                            >
+                            <span class="destination-city">알마티</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Footer Note -->
+                <div class="absolute bottom-12 w-full text-center">
+                    <p class="font-sans text-xs text-white text-opacity-80 tracking-wide">
+                        2026년 가족 여행을 위한 완벽한 큐레이션
+                    </p>
+                </div>
+            </div>
+            <!-- Issue Number / Badge -->
+            <div class="absolute top-12 right-12 z-20">
+                <div
+                    class="w-20 h-20 rounded-full border border-white border-opacity-50 flex flex-col justify-center items-center bg-black bg-opacity-20 backdrop-filter backdrop-blur-sm"
+                >
+                    <p class="font-sans text-xs font-bold">VOL.</p>
+                    <p class="font-serif text-2xl">01</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

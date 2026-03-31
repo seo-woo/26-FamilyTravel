@@ -1,211 +1,334 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="ko">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>마나도 여행 가이드</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-            background-color: #1a1a1a;
-        }
-        .slide-container {
-            width: min(1280px, 100%);
-            min-height: 100vh;
-            height: auto;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            background-color: #fbfbf8; /* Warm off-white paper tone */
-            margin: 0 auto;
-        }
-        .font-serif {
-            font-family: 'Noto Serif KR', serif;
-        }
-        .font-sans {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-        .left-panel {
-            flex: 0 0 42%;
-            position: relative;
-            height: 100%;
-        }
-        .right-panel {
-            flex: 1;
-            padding: 3rem 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .accent-text {
-            color: #0e7490; /* Cyan 700 */
-        }
-        .card-shadow {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        }
-        .list-dot::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #06b6d4; /* Cyan 500 */
-            margin-right: 8px;
-            margin-bottom: 2px;
-        }
-        @media (max-width: 768px) {
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>마나도 여행 가이드</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                background-color: #1a1a1a;
+            }
             .slide-container {
-                flex-direction: column;
+                width: min(1280px, 100%);
+                min-height: 100vh;
+                height: auto;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                background-color: #fbfbf8; /* Warm off-white paper tone */
+                margin: 0 auto;
+            }
+            .font-serif {
+                font-family: "Noto Serif KR", serif;
+            }
+            .font-sans {
+                font-family: "Noto Sans KR", sans-serif;
             }
             .left-panel {
-                flex: none;
-                height: 38vh;
-                min-height: 220px;
+                flex: 0 0 42%;
+                position: relative;
+                height: 100%;
             }
             .right-panel {
-                padding: 1.25rem 1rem 1.5rem;
-            }
-            .right-panel h1 {
-                font-size: 2.1rem;
-                line-height: 1.2;
-            }
-            .right-panel .font-serif.text-xl {
-                font-size: 1rem;
-            }
-            .right-panel .grid.grid-cols-2 {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                margin-bottom: 1rem;
-            }
-            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 {
+                flex: 1;
+                padding: 3rem 4rem;
+                display: flex;
                 flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-                margin-bottom: 1rem;
+                justify-content: center;
             }
-            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 > div:first-child {
-                border-right: 0;
-                padding-right: 0;
-                border-bottom: 1px solid #f3f4f6;
-                padding-bottom: 0.8rem;
+            .accent-text {
+                color: #0e7490; /* Cyan 700 */
             }
-        }
-    </style>
-</head>
-<body>
-<div class="slide-container">
-<a href="index.html" class="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/30 text-white text-sm font-medium shadow-sm transition-colors font-sans" aria-label="메인으로 돌아가기">
-<i class="fas fa-home"></i><span>메인으로</span>
-</a>
-<!-- Left Panel: Immersive Image -->
-<div class="left-panel">
-<img alt="Bunaken Snorkeling Manado" class="absolute inset-0 w-full h-full object-cover" src="https://img.segye.com/content/image/2025/11/03/20251103518460.jpg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-<div class="absolute bottom-8 left-8 text-white">
-<p class="font-sans text-xs tracking-widest uppercase opacity-80 mb-1">Indonesia</p>
-<p class="font-serif text-3xl font-light">Manado, Sulawesi</p>
-</div>
-</div>
-<!-- Right Panel: Detailed Content -->
-<div class="right-panel">
-<!-- Header -->
-<div class="mb-6 border-b border-gray-200 pb-4">
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-bold uppercase tracking-wider rounded">Ocean &amp; Beach</span>
-<span class="text-gray-400 text-xs">Theme 02</span>
-</div>
-<h1 class="font-serif text-5xl font-bold text-gray-900 mb-2">마나도 (Manado)</h1>
-<p class="font-serif text-xl text-gray-600 italic">"2026 직항으로 가까워진, 세계 최정상급 수중 생태계의 보고"</p>
-</div>
-<!-- Pros & Cons Grid -->
-<div class="grid grid-cols-2 gap-8 mb-8">
-<div>
-<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
-<i class="fas fa-plus-circle text-cyan-600 mr-2"></i> 장점 (Pros)
-                    </h3>
-<div class="space-y-2">
-<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>2026년 직항 노선(이스타항공 등) 취항으로 접근성 대폭 향상</span>
-</p>
-<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>사이판급 투명한 바다와 세계 최고 수준의 수중 환경</span>
-</p>
-</div>
-</div>
-<div>
-<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
-<i class="fas fa-minus-circle text-red-400 mr-2"></i> 단점 (Cons)
-                    </h3>
-<div class="space-y-2">
-<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>한국어 인프라가 다소 부족할 수 있음 (가이드 동행 권장)</span>
-</p>
-<p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>휴양 외 쇼핑이나 도심 관광 콘텐츠는 제한적</span>
-</p>
-</div>
-</div>
-</div>
-<!-- Must Visit & Resort Recommendation -->
-<div class="bg-white p-5 rounded-lg border border-gray-100 card-shadow mb-6 flex gap-6">
-<div class="flex-1 border-r border-gray-100 pr-6">
-<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
-<i class="fas fa-map-marker-alt text-cyan-600 mr-2"></i>Must Visit
-                    </h3>
-<div class="space-y-2">
-<a href="manado-places.html#bunaken" class="font-sans text-sm text-gray-600 flex items-center hover:text-cyan-700 transition-colors">
-<i class="fas fa-water text-gray-400 text-xs w-5"></i>부나켄 국립공원 (스노클링)
-                    </a>
-<a href="manado-places.html#tomohon" class="font-sans text-sm text-gray-600 flex items-center hover:text-cyan-700 transition-colors">
-<i class="fas fa-store text-gray-400 text-xs w-5"></i>토모혼 전통시장
-                    </a>
-<a href="manado-places.html#jesus-statue" class="font-sans text-sm text-gray-600 flex items-center hover:text-cyan-700 transition-colors">
-<i class="fas fa-cross text-gray-400 text-xs w-5"></i>초대형 예수상 (세계 2위)
-                    </a>
-</div>
-</div>
-<div class="flex-[1.5]">
-<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
-<i class="fas fa-hotel text-cyan-600 mr-2"></i>Best Resorts
-                    </h3>
-<div class="space-y-3">
-<div>
-<p class="font-sans text-sm font-bold text-gray-800">파라다이스 골프 &amp; 리조트</p>
-<p class="font-sans text-xs text-gray-500 mt-0.5">18홀 골프장과 전용 해변 보유, 대단지라 가족 활동에 최적</p>
-</div>
-<div>
-<p class="font-sans text-sm font-bold text-gray-800">포 포인츠 바이 쉐라톤 마나도</p>
-<p class="font-sans text-xs text-gray-500 mt-0.5">시내와 연결되어 쇼핑몰 및 맛집 탐방에 유리한 위치</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Family Point -->
-<div class="bg-cyan-50 border-l-4 border-cyan-600 p-4 rounded-r-md">
-<div class="flex items-start">
-<div class="flex-shrink-0">
-<i class="fas fa-lightbulb text-cyan-600 mt-1"></i>
-</div>
-<div class="ml-3">
-<h4 class="text-sm font-bold text-cyan-800 font-serif">Family Point: 부나켄 호핑 투어</h4>
-<p class="text-sm text-cyan-700 mt-1 font-sans">
-                            수족관 속을 걷는 듯한 투명한 바다에서의 스노클링은 아이들과 부모님 모두에게 평생 잊지 못할 환상적인 경험이 됩니다.
-                        </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</body>
+            .card-shadow {
+                box-shadow:
+                    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            }
+            .list-dot::before {
+                content: "";
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: #06b6d4; /* Cyan 500 */
+                margin-right: 8px;
+                margin-bottom: 2px;
+            }
+            @media (max-width: 768px) {
+                .slide-container {
+                    flex-direction: column;
+                }
+                .left-panel {
+                    flex: none;
+                    height: 38vh;
+                    min-height: 220px;
+                }
+                .right-panel {
+                    padding: 1.25rem 1rem 1.5rem;
+                }
+                .right-panel h1 {
+                    font-size: 2.1rem;
+                    line-height: 1.2;
+                }
+                .right-panel .font-serif.text-xl {
+                    font-size: 1rem;
+                }
+                .right-panel .grid.grid-cols-2 {
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+                    margin-bottom: 1rem;
+                }
+                .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 {
+                    flex-direction: column;
+                    gap: 1rem;
+                    padding: 1rem;
+                    margin-bottom: 1rem;
+                }
+                .right-panel
+                    > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6
+                    > div:first-child {
+                    border-right: 0;
+                    padding-right: 0;
+                    border-bottom: 1px solid #f3f4f6;
+                    padding-bottom: 0.8rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide-container">
+            <a
+                href="index.html"
+                class="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/30 text-white text-sm font-medium shadow-sm transition-colors font-sans"
+                aria-label="메인으로 돌아가기"
+            >
+                <i class="fas fa-home"></i><span>메인으로</span>
+            </a>
+            <!-- Left Panel: Immersive Image -->
+            <div class="left-panel">
+                <img
+                    alt="Bunaken Snorkeling Manado"
+                    class="absolute inset-0 w-full h-full object-cover"
+                    src="https://img.segye.com/content/image/2025/11/03/20251103518460.jpg"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"
+                ></div>
+                <div class="absolute bottom-8 left-8 text-white">
+                    <p class="font-sans text-xs tracking-widest uppercase opacity-80 mb-1">Indonesia</p>
+                    <p class="font-serif text-3xl font-light">Manado, Sulawesi</p>
+                </div>
+            </div>
+            <!-- Right Panel: Detailed Content -->
+            <div class="right-panel">
+                <!-- Header -->
+                <div class="mb-6 border-b border-gray-200 pb-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span
+                            class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-bold uppercase tracking-wider rounded"
+                            >Ocean &amp; Beach</span
+                        >
+                        <span class="text-gray-400 text-xs">Theme 02</span>
+                    </div>
+                    <h1 class="font-serif text-5xl font-bold text-gray-900 mb-2">마나도 (Manado)</h1>
+                    <p class="font-serif text-xl text-gray-600 italic">
+                        "2026 직항으로 가까워진, 세계 최정상급 수중 생태계의 보고"
+                    </p>
+                </div>
+                <!-- Pros & Cons Grid -->
+                <div class="grid grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3
+                            class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center"
+                        >
+                            <i class="fas fa-plus-circle text-cyan-600 mr-2"></i> 장점 (Pros)
+                        </h3>
+                        <div class="space-y-2">
+                            <p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>2026년 직항 노선(이스타항공 등) 취항으로 접근성 대폭 향상</span>
+                            </p>
+                            <p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>사이판급 투명한 바다와 세계 최고 수준의 수중 환경</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center"
+                        >
+                            <i class="fas fa-minus-circle text-red-400 mr-2"></i> 단점 (Cons)
+                        </h3>
+                        <div class="space-y-2">
+                            <p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>한국어 인프라가 다소 부족할 수 있음 (가이드 동행 권장)</span>
+                            </p>
+                            <p class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>휴양 외 쇼핑이나 도심 관광 콘텐츠는 제한적</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Must Visit & Resort Recommendation -->
+                <div class="bg-white p-5 rounded-lg border border-gray-100 card-shadow mb-6 flex gap-6">
+                    <div class="flex-1 border-r border-gray-100 pr-6">
+                        <h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+                            <i class="fas fa-map-marker-alt text-cyan-600 mr-2"></i>Must Visit
+                        </h3>
+                        <div class="space-y-2">
+                            <a
+                                href="manado-places.html#bunaken"
+                                class="font-sans text-sm text-gray-600 flex items-center hover:text-cyan-700 transition-colors"
+                            >
+                                <i class="fas fa-water text-gray-400 text-xs w-5"></i>부나켄 국립공원 (스노클링)
+                            </a>
+                            <a
+                                href="manado-places.html#tomohon"
+                                class="font-sans text-sm text-gray-600 flex items-center hover:text-cyan-700 transition-colors"
+                            >
+                                <i class="fas fa-store text-gray-400 text-xs w-5"></i>토모혼 전통시장
+                            </a>
+                            <a
+                                href="manado-places.html#jesus-statue"
+                                class="font-sans text-sm text-gray-600 flex items-center hover:text-cyan-700 transition-colors"
+                            >
+                                <i class="fas fa-cross text-gray-400 text-xs w-5"></i>초대형 예수상 (세계 2위)
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-[1.5]">
+                        <h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+                            <i class="fas fa-hotel text-cyan-600 mr-2"></i>Best Resorts
+                        </h3>
+                        <div class="space-y-3">
+                            <button
+                                class="resort-btn"
+                                data-name="파라다이스 골프 &amp; 리조트"
+                                data-images='["https://images.pexels.com/photos/1346326/pexels-photo-1346326.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/2506988/pexels-photo-2506988.jpeg?auto=compress&cs=tinysrgb&w=1200"]'
+                            >
+                                <p class="font-sans text-sm font-bold text-gray-800 flex items-center gap-1">
+                                    파라다이스 골프 &amp; 리조트<i class="fas fa-images rm-camera"></i>
+                                </p>
+                                <p class="font-sans text-xs text-gray-500 mt-0.5">
+                                    18홀 골프장과 전용 해변 보유, 대단지라 가족 활동에 최적
+                                </p>
+                            </button>
+                            <button
+                                class="resort-btn"
+                                data-name="포 포인츠 바이 쉐라톤 마나도"
+                                data-images='["https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=1200"]'
+                            >
+                                <p class="font-sans text-sm font-bold text-gray-800 flex items-center gap-1">
+                                    포 포인츠 바이 쉐라톤 마나도<i class="fas fa-images rm-camera"></i>
+                                </p>
+                                <p class="font-sans text-xs text-gray-500 mt-0.5">
+                                    시내와 연결되어 쇼핑몰 및 맛집 탐방에 유리한 위치
+                                </p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Family Point -->
+                <div class="bg-cyan-50 border-l-4 border-cyan-600 p-4 rounded-r-md">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-lightbulb text-cyan-600 mt-1"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-bold text-cyan-800 font-serif">Family Point: 부나켄 호핑 투어</h4>
+                            <p class="text-sm text-cyan-700 mt-1 font-sans">
+                                수족관 속을 걷는 듯한 투명한 바다에서의 스노클링은 아이들과 부모님 모두에게 평생 잊지
+                                못할 환상적인 경험이 됩니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav
+            style="
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.55rem 2.5rem;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(6px);
+                border-top: 1px solid #e5e7eb;
+                box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.07);
+                font-family: &quot;Noto Sans KR&quot;, sans-serif;
+                font-size: 0.7rem;
+                font-weight: 500;
+            "
+            aria-label="슬라이드 내비게이션"
+        >
+            <a
+                href="slide3.html"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.35rem;
+                    color: #9ca3af;
+                    text-decoration: none;
+                    width: 5.5rem;
+                "
+                onmouseover="this.style.color = '#374151'"
+                onmouseout="this.style.color = '#9ca3af'"
+                ><i class="fas fa-chevron-left" style="font-size: 0.65rem"></i><span>코타키나발루</span></a
+            >
+            <a
+                href="index.html"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.4rem;
+                    padding: 0.3rem 1rem;
+                    border-radius: 9999px;
+                    background: #f3f4f6;
+                    color: #4b5563;
+                    text-decoration: none;
+                "
+                onmouseover="this.style.background = '#e5e7eb'"
+                onmouseout="this.style.background = '#f3f4f6'"
+                ><i class="fas fa-th-large"></i><span>여행지 목록</span></a
+            >
+            <a
+                href="slide6.html"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.35rem;
+                    color: #9ca3af;
+                    text-decoration: none;
+                    width: 5.5rem;
+                    justify-content: flex-end;
+                "
+                onmouseover="this.style.color = '#374151'"
+                onmouseout="this.style.color = '#9ca3af'"
+                ><span>카자흐스탄</span><i class="fas fa-chevron-right" style="font-size: 0.65rem"></i
+            ></a>
+        </nav>
+        <script src="resort-modal.js"></script>
+    </body>
 </html>

@@ -1,198 +1,320 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>카자흐스탄 여행 가이드</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-            background-color: #1a1a1a;
-        }
-        .slide-container {
-            width: min(1280px, 100%);
-            min-height: 100vh;
-            height: auto;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            background-color: #fbfbf8;
-            margin: 0 auto;
-        }
-        .font-serif { font-family: 'Noto Serif KR', serif; }
-        .font-sans  { font-family: 'Noto Sans KR', sans-serif; }
-        .left-panel {
-            flex: 0 0 42%;
-            position: relative;
-            height: 100%;
-        }
-        .right-panel {
-            flex: 1;
-            padding: 3rem 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .card-shadow {
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-        }
-        @media (max-width: 768px) {
-            .slide-container { flex-direction: column; }
-            .left-panel { flex: none; height: 38vh; min-height: 220px; }
-            .right-panel { padding: 1.25rem 1rem 1.5rem; }
-            .right-panel h1 { font-size: 2.1rem; line-height: 1.2; }
-            .right-panel .font-serif.text-xl { font-size: 1rem; }
-            .right-panel .grid.grid-cols-2 { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem; }
-            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 {
-                flex-direction: column; gap: 1rem; padding: 1rem; margin-bottom: 1rem;
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>카자흐스탄 여행 가이드</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                background-color: #1a1a1a;
             }
-            .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 > div:first-child {
-                border-right: 0; padding-right: 0;
-                border-bottom: 1px solid #f3f4f6; padding-bottom: 0.8rem;
+            .slide-container {
+                width: min(1280px, 100%);
+                min-height: 100vh;
+                height: auto;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                background-color: #fbfbf8;
+                margin: 0 auto;
             }
-        }
-</style>
-</head>
-<body>
-<div class="slide-container">
-<a href="index.html" class="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/30 text-white text-sm font-medium shadow-sm transition-colors font-sans" aria-label="메인으로 돌아가기">
-<i class="fas fa-home"></i><span>메인으로</span>
-</a>
+            .font-serif {
+                font-family: "Noto Serif KR", serif;
+            }
+            .font-sans {
+                font-family: "Noto Sans KR", sans-serif;
+            }
+            .left-panel {
+                flex: 0 0 42%;
+                position: relative;
+                height: 100%;
+            }
+            .right-panel {
+                flex: 1;
+                padding: 3rem 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .card-shadow {
+                box-shadow:
+                    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            }
+            @media (max-width: 768px) {
+                .slide-container {
+                    flex-direction: column;
+                }
+                .left-panel {
+                    flex: none;
+                    height: 38vh;
+                    min-height: 220px;
+                }
+                .right-panel {
+                    padding: 1.25rem 1rem 1.5rem;
+                }
+                .right-panel h1 {
+                    font-size: 2.1rem;
+                    line-height: 1.2;
+                }
+                .right-panel .font-serif.text-xl {
+                    font-size: 1rem;
+                }
+                .right-panel .grid.grid-cols-2 {
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+                    margin-bottom: 1rem;
+                }
+                .right-panel > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6 {
+                    flex-direction: column;
+                    gap: 1rem;
+                    padding: 1rem;
+                    margin-bottom: 1rem;
+                }
+                .right-panel
+                    > .bg-white.p-5.rounded-lg.border.border-gray-100.card-shadow.mb-6.flex.gap-6
+                    > div:first-child {
+                    border-right: 0;
+                    padding-right: 0;
+                    border-bottom: 1px solid #f3f4f6;
+                    padding-bottom: 0.8rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide-container">
+            <a
+                href="index.html"
+                class="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/30 text-white text-sm font-medium shadow-sm transition-colors font-sans"
+                aria-label="메인으로 돌아가기"
+            >
+                <i class="fas fa-home"></i><span>메인으로</span>
+            </a>
 
-<!-- Left Panel -->
-<div class="left-panel">
-<img alt="Kazakhstan Charyn Canyon" class="absolute inset-0 w-full h-full object-cover"
-     src="https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/aKRc/image/Qg8YKpU7UWb-LRwMWBW9phHVGxI.jpg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-<div class="absolute bottom-8 left-8 text-white">
-<p class="font-sans text-xs tracking-widest uppercase opacity-80 mb-1">Kazakhstan</p>
-<p class="font-serif text-3xl font-light">Almaty</p>
-</div>
-</div>
+            <!-- Left Panel -->
+            <div class="left-panel">
+                <img
+                    alt="Kazakhstan Charyn Canyon"
+                    class="absolute inset-0 w-full h-full object-cover"
+                    src="https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/aKRc/image/Qg8YKpU7UWb-LRwMWBW9phHVGxI.jpg"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"
+                ></div>
+                <div class="absolute bottom-8 left-8 text-white">
+                    <p class="font-sans text-xs tracking-widest uppercase opacity-80 mb-1">Kazakhstan</p>
+                    <p class="font-serif text-3xl font-light">Almaty</p>
+                </div>
+            </div>
 
-<!-- Right Panel -->
-<div class="right-panel">
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <!-- Header -->
+                <div class="mb-6 border-b border-gray-200 pb-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span
+                            class="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider rounded"
+                            >Mountains &amp; Steppe</span
+                        >
+                        <span class="text-gray-400 text-xs">Theme 05</span>
+                    </div>
+                    <h1 class="font-serif text-5xl font-bold text-gray-900 mb-2">카자흐스탄 (알마티)</h1>
+                    <p class="font-serif text-xl text-gray-600 italic">
+                        "끝없는 설산과 협곡, 중앙아시아 대자연을 온 가족이 품다"
+                    </p>
+                </div>
 
-<!-- Header -->
-<div class="mb-6 border-b border-gray-200 pb-4">
-<div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider rounded">Mountains &amp; Steppe</span>
-<span class="text-gray-400 text-xs">Theme 05</span>
-</div>
-<h1 class="font-serif text-5xl font-bold text-gray-900 mb-2">카자흐스탄 (알마티)</h1>
-<p class="font-serif text-xl text-gray-600 italic">"끝없는 설산과 협곡, 중앙아시아 대자연을 온 가족이 품다"</p>
-</div>
+                <!-- Pros & Cons -->
+                <div class="grid grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3
+                            class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center"
+                        >
+                            <i class="fas fa-plus-circle text-amber-500 mr-2"></i> 장점 (Pros)
+                        </h3>
+                        <ul class="space-y-2">
+                            <li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>한국에서 직항 약 5시간, 비교적 가까운 중앙아시아</span>
+                            </li>
+                            <li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>협곡·고산 호수·설산 스키장, 자연 콘텐츠의 압도적 다양성</span>
+                            </li>
+                            <li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>물가가 저렴해 5인 가족 여행 경비 부담이 낮음</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center"
+                        >
+                            <i class="fas fa-minus-circle text-red-400 mr-2"></i> 단점 (Cons)
+                        </h3>
+                        <ul class="space-y-2">
+                            <li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>한국어 인프라가 거의 없어 가이드·차량 사전 예약 필수</span>
+                            </li>
+                            <li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>주요 관광지 간 이동 거리가 길어 전용 차량 필수</span>
+                            </li>
+                            <li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
+                                <span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
+                                <span>고산 지대 방문 시 고도 적응 필요 (빅알마티 호수 등 3,000m+)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-<!-- Pros & Cons -->
-<div class="grid grid-cols-2 gap-8 mb-8">
-<div>
-<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
-<i class="fas fa-plus-circle text-amber-500 mr-2"></i> 장점 (Pros)
-</h3>
-<ul class="space-y-2">
-<li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>한국에서 직항 약 5시간, 비교적 가까운 중앙아시아</span>
-</li>
-<li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>협곡·고산 호수·설산 스키장, 자연 콘텐츠의 압도적 다양성</span>
-</li>
-<li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>물가가 저렴해 5인 가족 여행 경비 부담이 낮음</span>
-</li>
-</ul>
-</div>
-<div>
-<h3 class="font-sans text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
-<i class="fas fa-minus-circle text-red-400 mr-2"></i> 단점 (Cons)
-</h3>
-<ul class="space-y-2">
-<li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>한국어 인프라가 거의 없어 가이드·차량 사전 예약 필수</span>
-</li>
-<li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>주요 관광지 간 이동 거리가 길어 전용 차량 필수</span>
-</li>
-<li class="font-sans text-gray-700 text-sm leading-relaxed flex items-start">
-<span class="mr-2 mt-1.5 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0"></span>
-<span>고산 지대 방문 시 고도 적응 필요 (빅알마티 호수 등 3,000m+)</span>
-</li>
-</ul>
-</div>
-</div>
+                <!-- Must Visit & Best Resorts -->
+                <div class="bg-white p-5 rounded-lg border border-gray-100 card-shadow mb-6 flex gap-6">
+                    <div class="flex-1 border-r border-gray-100 pr-6">
+                        <h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+                            <i class="fas fa-map-marker-alt text-amber-500 mr-2"></i>Must Visit
+                        </h3>
+                        <div class="space-y-2">
+                            <a
+                                href="kazakhstan-places.html#charyn"
+                                class="font-sans text-sm text-gray-600 flex items-center hover:text-amber-600 transition-colors"
+                            >
+                                <i class="fas fa-mountain text-gray-400 text-xs w-5"></i>차린 협곡
+                            </a>
+                            <a
+                                href="kazakhstan-places.html#kaindy-lake"
+                                class="font-sans text-sm text-gray-600 flex items-center hover:text-amber-600 transition-colors"
+                            >
+                                <i class="fas fa-water text-gray-400 text-xs w-5"></i>카인디 호수
+                            </a>
+                            <a
+                                href="kazakhstan-places.html#almaty-city"
+                                class="font-sans text-sm text-gray-600 flex items-center hover:text-amber-600 transition-colors"
+                            >
+                                <i class="fas fa-city text-gray-400 text-xs w-5"></i>알마티 시내 투어
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-[1.5]">
+                        <h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+                            <i class="fas fa-hotel text-amber-500 mr-2"></i>Best Resorts
+                        </h3>
+                        <div class="space-y-3">
+                            <button
+                                class="resort-btn"
+                                data-name="더 리츠칼튼 알마티 (The Ritz-Carlton Almaty)"
+                                data-images='["https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=1200"]'
+                            >
+                                <p class="font-sans text-sm font-bold text-gray-800 flex items-center">
+                                    더 리츠칼튼 알마티 (The Ritz-Carlton)
+                                    <i class="fas fa-images rm-camera ml-1"></i>
+                                </p>
+                                <p class="font-sans text-xs text-gray-500 mt-0.5">
+                                    알마티 최고급 호텔, 설산 전망 루프탑 & 수영장 보유
+                                </p>
+                            </button>
+                            <button class="resort-btn" data-name="레이크사이드 알마티 호텔" data-images='["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1200"]'>
+                                <p class="font-sans text-sm font-bold text-gray-800 flex items-center">
+                                    킹스 파크 호텔 알마티 (King's Park)
+                                    <i class="fas fa-images rm-camera ml-1"></i>
+                                </p>
+                                <p class="font-sans text-xs text-gray-500 mt-0.5">
+                                    시내 중심 위치, 5인 가족 패밀리 스위트 운영
+                                </p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Must Visit & Best Resorts -->
-<div class="bg-white p-5 rounded-lg border border-gray-100 card-shadow mb-6 flex gap-6">
-<div class="flex-1 border-r border-gray-100 pr-6">
-<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
-<i class="fas fa-map-marker-alt text-amber-500 mr-2"></i>Must Visit
-</h3>
-<div class="space-y-2">
-<a href="kazakhstan-places.html#charyn" class="font-sans text-sm text-gray-600 flex items-center hover:text-amber-600 transition-colors">
-<i class="fas fa-mountain text-gray-400 text-xs w-5"></i>차린 협곡
-</a>
-<a href="kazakhstan-places.html#kaindy-lake" class="font-sans text-sm text-gray-600 flex items-center hover:text-amber-600 transition-colors">
-<i class="fas fa-water text-gray-400 text-xs w-5"></i>카인디 호수
-</a>
-<a href="kazakhstan-places.html#almaty-city" class="font-sans text-sm text-gray-600 flex items-center hover:text-amber-600 transition-colors">
-<i class="fas fa-city text-gray-400 text-xs w-5"></i>알마티 시내 투어
-</a>
-</div>
-</div>
-<div class="flex-[1.5]">
-<h3 class="font-serif text-lg font-bold text-gray-800 mb-3 border-b border-gray-100 pb-2">
-<i class="fas fa-hotel text-amber-500 mr-2"></i>Best Resorts
-</h3>
-<div class="space-y-3">
-<button class="resort-btn"
-  data-name="더 리츠칼튼 알마티 (The Ritz-Carlton Almaty)"
-  data-images='["","",""]'>
-<p class="font-sans text-sm font-bold text-gray-800 flex items-center">
-  더 리츠칼튼 알마티 (The Ritz-Carlton)
-  <i class="fas fa-images rm-camera ml-1"></i>
-</p>
-<p class="font-sans text-xs text-gray-500 mt-0.5">알마티 최고급 호텔, 설산 전망 루프탑 & 수영장 보유</p>
-</button>
-<button class="resort-btn"
-  data-name="레이크사이드 알마티 호텔"
-  data-images='["","",""]'>
-<p class="font-sans text-sm font-bold text-gray-800 flex items-center">
-  킹스 파크 호텔 알마티 (King's Park)
-  <i class="fas fa-images rm-camera ml-1"></i>
-</p>
-<p class="font-sans text-xs text-gray-500 mt-0.5">시내 중심 위치, 5인 가족 패밀리 스위트 운영</p>
-</button>
-</div>
-</div>
-</div>
-
-<!-- Family Point -->
-<div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-md">
-<div class="flex items-start">
-<div class="flex-shrink-0">
-<i class="fas fa-city text-amber-500 mt-1"></i>
-</div>
-<div class="ml-3">
-<h4 class="text-sm font-bold text-amber-800 font-serif">Family Point: 콕-토베 케이블카 & 그린 바자르 시장 투어</h4>
-<p class="text-sm text-amber-700 mt-1 font-sans">
-알마티 언덕 위 콕-토베까지 케이블카를 타고 올라가 도시 전경을 내려다보고, 그린 바자르에서 현지 과일·견과류·빵을 맛보는 하루는 부모님과 아이 모두가 즐길 수 있는 알마티 시내 핵심 코스입니다.
-</p>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-<script src="resort-modal.js"></script>
-</body>
+                <!-- Family Point -->
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-md">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-city text-amber-500 mt-1"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-bold text-amber-800 font-serif">
+                                Family Point: 콕-토베 케이블카 & 그린 바자르 시장 투어
+                            </h4>
+                            <p class="text-sm text-amber-700 mt-1 font-sans">
+                                알마티 언덕 위 콕-토베까지 케이블카를 타고 올라가 도시 전경을 내려다보고, 그린
+                                바자르에서 현지 과일·견과류·빵을 맛보는 하루는 부모님과 아이 모두가 즐길 수 있는 알마티
+                                시내 핵심 코스입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="resort-modal.js"></script>
+        <nav
+            style="
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.55rem 2.5rem;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(6px);
+                border-top: 1px solid #e5e7eb;
+                box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.07);
+                font-family: &quot;Noto Sans KR&quot;, sans-serif;
+                font-size: 0.7rem;
+                font-weight: 500;
+            "
+            aria-label="슬라이드 내비게이션"
+        >
+            <a
+                href="slide4.html"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.35rem;
+                    color: #9ca3af;
+                    text-decoration: none;
+                    width: 5.5rem;
+                "
+                onmouseover="this.style.color = '#374151'"
+                onmouseout="this.style.color = '#9ca3af'"
+                ><i class="fas fa-chevron-left" style="font-size: 0.65rem"></i><span>마나도</span></a
+            >
+            <a
+                href="index.html"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 0.4rem;
+                    padding: 0.3rem 1rem;
+                    border-radius: 9999px;
+                    background: #f3f4f6;
+                    color: #4b5563;
+                    text-decoration: none;
+                "
+                onmouseover="this.style.background = '#e5e7eb'"
+                onmouseout="this.style.background = '#f3f4f6'"
+                ><i class="fas fa-th-large"></i><span>여행지 목록</span></a
+            >
+            <span style="width: 5.5rem"></span>
+        </nav>
+    </body>
 </html>
